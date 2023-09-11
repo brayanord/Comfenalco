@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="MensajeExepcionRegistraNovedadEmpresa">
+		<xsd:sequence>
+			<xsd:element name="tipoError" type="xsd:string" />
+			<xsd:element name="codigoError" type="xsd:string" />
+			<xsd:element name="descripcionError" type="xsd:string" />
+			<xsd:element name="solucionError" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InconsistenciasRegistraNovedadEmpresa">
+		<xsd:sequence>
+			<xsd:element name="inconsistencia" type="xsd:string"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MensajeRegistraNovedadEmpresaResponse">
+		<xsd:sequence>
+			<xsd:element name="mensajeExcepcionRegistraNovedadEmpresa" type="MensajeExepcionRegistraNovedadEmpresa" />
+			<xsd:element name="inconsistenciasNovedadEmpresa" type="InconsistenciasRegistraNovedadEmpresa" />
+			<xsd:element name="respuestaNovedadEmpresa" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="mensajeRegistraNovedadEmpresaResponse"
+		type="MensajeRegistraNovedadEmpresaResponse" />
+</xsd:schema>

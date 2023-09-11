@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="GeneraCarnetPorEmpresaRequest">
+		<xsd:sequence>
+			<xsd:element name="loginUsuarioAutorizado" type="xsd:string" minOccurs="0" nillable="true"/>
+			<xsd:element name="tipoDocumento" type="xsd:string" minOccurs="0" nillable="true"/>
+			<xsd:element name="numeroDocumento" type="xsd:string" minOccurs="0" nillable="true"/>
+			<xsd:element name="generarCarnet" minOccurs="0" nillable="true">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="S" />
+						<xsd:enumeration value="N" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="conyuge" type="SolicitudCarnetConyuge" minOccurs="0" nillable="true"/>
+			<xsd:element name="beneficiarios" type="SolicitudesCarnetBeneficiarios" minOccurs="0" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="SolicitudCarnetConyuge" >
+		<xsd:sequence>
+			<xsd:element name="tipoDocumentoConyuge" type="xsd:string" minOccurs="0" nillable="true"/>
+			<xsd:element name="numeroDocumentoConyuge" type="xsd:string" minOccurs="0" nillable="true"/>
+
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SolicitudCarnetBeneficiario">
+		<xsd:sequence>
+			<xsd:element name="tipoDocumentoBeneficiario" type="xsd:string" minOccurs="0" nillable="true"/>
+			<xsd:element name="numeroDocumentoBeneficiario" type="xsd:string" minOccurs="0" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="SolicitudesCarnetBeneficiarios">
+		<xsd:sequence>
+			<xsd:element name="beneficiario" type="SolicitudCarnetBeneficiario"
+				minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="solicitudCarnetsRequest" type="GeneraCarnetPorEmpresaRequest" />
+</xsd:schema>

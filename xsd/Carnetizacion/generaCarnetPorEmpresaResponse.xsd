@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="CarnetAfiliado">
+		<xsd:sequence>
+			<xsd:element name="archivo" type="xsd:base64Binary" minOccurs="0" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="MensajeExepcionCarnetAfiliado">
+		<xsd:sequence>
+			<xsd:element name="tipoError" type="xsd:string" minOccurs="0" nillable="true"/>
+			<xsd:element name="codigoError" type="xsd:string" minOccurs="0" nillable="true"/>
+			<xsd:element name="descripcionError" type="xsd:string" minOccurs="0" nillable="true"/>
+			<xsd:element name="solucionError" type="xsd:string" minOccurs="0" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="CarnetAfiliadoResponse">
+		<xsd:sequence>
+			<xsd:element name="carnetAfiliados" type="CarnetAfiliado" minOccurs="0" nillable="true"/>
+			<xsd:element name="mensajeExcepcion" type="MensajeExepcionCarnetAfiliado" minOccurs="0" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="carnetResponse" type="CarnetAfiliadoResponse"  nillable="true" />
+</xsd:schema>

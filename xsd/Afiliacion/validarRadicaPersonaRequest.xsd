@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+			<xsd:complexType name="TrabajadorRadicacion">
+				<xsd:sequence>
+					<xsd:element name="tipoServicio">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:enumeration value="nuevaAfiliacion" />
+								<xsd:enumeration value="reactivacion" />
+								<xsd:enumeration value="adicionBeneficiarios" />
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="tipoIdentificacion" type="xsd:string"  nillable="true" minOccurs="0"/>
+					<xsd:element name="numeroIdentificacion" type="xsd:string"  nillable="true" minOccurs="0"/>
+					<xsd:element name="primerNombre" type="xsd:string" nillable="true" minOccurs="0"/>
+					<xsd:element name="segundoNombre" type="xsd:string"  nillable="true" minOccurs="0"/>
+					<xsd:element name="primerApellido" type="xsd:string"  nillable="true" minOccurs="0"/>
+					<xsd:element name="segundoApellido" type="xsd:string"  nillable="true" minOccurs="0"/>
+					<xsd:element name="sexo" type="xsd:string" nillable="true" minOccurs="0"/>
+					<xsd:element name="fechaNacimiento" type="xsd:string"  nillable="true" minOccurs="0"/>
+					<xsd:element name="empresaRadicacion" type="EmpresaRadicacion"  nillable="true" minOccurs="0"/>
+					<xsd:element name="fechaInicialContrato" type="xsd:string"  nillable="true" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="ConyugueRadicacion">
+				<xsd:sequence>
+					<xsd:element name="tipoIdentificacion" type="xsd:string"  nillable="true" minOccurs="0"/>
+					<xsd:element name="numeroIdentificacion" type="xsd:string" nillable="true" minOccurs="0"/>
+					<xsd:element name="primerNombre" type="xsd:string" nillable="true" minOccurs="0"/>
+					<xsd:element name="segundoNombre" type="xsd:string"  nillable="true" minOccurs="0"/>
+					<xsd:element name="primerApellido" type="xsd:string"  nillable="true" minOccurs="0"/>
+					<xsd:element name="segundoApellido" type="xsd:string"  nillable="true" minOccurs="0"/>
+					<xsd:element name="idTidi" type="xsd:string"  nillable="true" minOccurs="0"/>
+					<xsd:element name="sexo" type="xsd:string"  nillable="true" minOccurs="0"/>
+					<xsd:element name="fechaNacimiento" type="xsd:string" nillable="true" minOccurs="0"/>
+					<xsd:element name="parentesco" type="xsd:string" nillable="true" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+
+
+			<xsd:complexType name="BeneficiarioValidaRadicacion">
+				<xsd:sequence>
+					<xsd:element name="tipoIdentificacion" type="xsd:string"  nillable="true" minOccurs="0"/>
+					<xsd:element name="numeroIdentificacion" type="xsd:string"  nillable="true" minOccurs="0"/>
+					<xsd:element name="primerNombre" type="xsd:string" nillable="true" minOccurs="0"/>
+					<xsd:element name="segundoNombre" type="xsd:string"  nillable="true" minOccurs="0"/>
+					<xsd:element name="primerApellido" type="xsd:string"  nillable="true" minOccurs="0"/>
+					<xsd:element name="segundoApellido" type="xsd:string"  nillable="true" minOccurs="0"/>
+					<xsd:element name="idTidi" type="xsd:string"  nillable="true" minOccurs="0"/>
+					<xsd:element name="sexo" type="xsd:string"  nillable="true" minOccurs="0"/>
+					<xsd:element name="fechaNacimiento" type="xsd:string"  nillable="true" minOccurs="0"/>
+					<xsd:element name="parentesco" type="xsd:string" nillable="true" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+
+
+			<xsd:complexType name="EmpresaRadicacion">
+				<xsd:sequence>
+					<xsd:element name="tipoIdentificacion" type="xsd:string"  nillable="true" minOccurs="0"/>
+					<xsd:element name="numeroIdentificacion" type="xsd:string"  nillable="true" minOccurs="0"/>
+					<xsd:element name="codigoSucursal" type="xsd:string"  nillable="true" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+
+
+
+			<!--Bloque de informcion de los beneficiarios -->
+			<xsd:complexType name="BeneficiariosValidaRadicacion">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0"
+				name="beneficiarioRadicacion" type="BeneficiarioValidaRadicacion" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+
+
+
+			<xsd:complexType name="ValidarRadicaPersonaRequest">
+				<xsd:sequence>
+					<xsd:element name="fechaRadicacion" type="xsd:string"  nillable="true" minOccurs="0"/>
+					<xsd:element name="tipoAfiliado">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:enumeration value="dependiente" />
+								<xsd:enumeration value="independiente" />
+								<xsd:enumeration value="pensionado" />
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:element>
+					<xsd:element name="trabajadorRadicacion" type="TrabajadorRadicacion"  nillable="true" minOccurs="0"/>
+					<xsd:element name="conyugueRadicacion" type="ConyugueRadicacion"  nillable="true" minOccurs="0"/>
+					<xsd:element name="beneficiarios" type="BeneficiariosValidaRadicacion"  nillable="true" minOccurs="0"/>
+				</xsd:sequence>
+			</xsd:complexType>
+
+
+
+	<xsd:element name="validarRadicaPersonaRequest" type="ValidarRadicaPersonaRequest" />
+	
+</xsd:schema>

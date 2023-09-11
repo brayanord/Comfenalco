@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="validarPersonaRequest" type="ValidarPersonaRequest" />
+	<xsd:complexType name="ValidarPersonaRequest">
+		<xsd:sequence>
+			<xsd:element name="tipoIdentificacion" type="xsd:string" />
+			<xsd:element name="numeroIdentificacion" type="xsd:string" />
+			<xsd:element name="primerNombre" type="xsd:string" />
+			<xsd:element name="segundoNombre" type="xsd:string" />
+			<xsd:element name="primerApellido" type="xsd:string" />
+			<xsd:element name="segundoApellido" type="xsd:string" />
+			<xsd:element name="sexo" type="xsd:string" />
+			<xsd:element name="fechaNacimiento" type="xsd:date" />
+			<xsd:element name="marcacionMellizo">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="S" />
+						<xsd:enumeration value="N" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

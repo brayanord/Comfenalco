@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+
+	<xsd:complexType name="MensajeExepcionRadicaNovedadEmpresa">
+		<xsd:sequence>
+			<xsd:element name="tipoError" type="xsd:string" />
+			<xsd:element name="codigoError" type="xsd:string" />
+			<xsd:element name="descripcionError" type="xsd:string" />
+			<xsd:element name="solucionError" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="validaRadicaNovedadEmpresaResponse" type="ValidaRadicaNovedadEmpresaResponse" />
+
+	<xsd:complexType name="ValidaRadicaNovedadEmpresaResponse">
+		<xsd:sequence>
+			<xsd:element name="mensajeExcepcion" type="MensajeExepcionRadicaNovedadEmpresa" />
+			<xsd:element name="mensajeExitoso" type="MensajeExitosoValidarRadicaEmpresa" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="MensajeExitosoValidarRadicaEmpresa">
+		<xsd:sequence>
+			<xsd:element name="mensajeRespuesta" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

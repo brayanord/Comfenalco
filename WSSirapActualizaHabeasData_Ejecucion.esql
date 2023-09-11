@@ -1,0 +1,54 @@
+
+
+CREATE COMPUTE MODULE WSSirapActualizaHabeasData_Ejecucion
+	CREATE FUNCTION Main() RETURNS BOOLEAN
+	BEGIN
+		CALL CopyMessageHeaders();
+		CALL CopyEntireMessage();
+		DECLARE Identificador CHARACTER;
+		SET Identificador = OutputRoot.XMLNSC.identificador;
+		--ELIMINAMOS EL IDENTIFICADOR DEL MENSAJE
+		DELETE FIELD  OutputRoot.XMLNSC.identificador;
+		
+		
+		IF(Identificador = 'actualiza')THEN
+			SET OutputRoot.Properties.IdentityMappedType='usernameAndPassword';
+	        SET OutputRoot.Properties.IdentityMappedToken='Interface2';
+	        SET OutputRoot.Properties.IdentityMappedPassword='Inicio03';
+			SET OutputRoot.Properties.IdentitySourceType='usernameAndPassword';
+	        SET OutputRoot.Properties.IdentitySourceToken='Interface2';
+	        SET OutputRoot.Properties.IdentitySourcePassword='Inicio03';
+			PROPAGATE to TERMINAL 'out1' ;
+		ELSEIF(Identificador = 'actualizaHd')THEN
+			SET OutputRoot.Properties.IdentityMappedType='usernameAndPassword';
+	        SET OutputRoot.Properties.IdentityMappedToken='S0016691015';
+	        SET OutputRoot.Properties.IdentityMappedPassword='<Com890>';
+			SET OutputRoot.Properties.IdentitySourceType='usernameAndPassword';
+	        SET OutputRoot.Properties.IdentitySourceToken='S0016691015';
+	        SET OutputRoot.Properties.IdentitySourcePassword='<Com890>';
+			PROPAGATE to TERMINAL 'out3' ;
+		ELSEIF(Identificador = 'consulta')THEN
+			SET OutputRoot.Properties.IdentityMappedType='usernameAndPassword';
+	        SET OutputRoot.Properties.IdentityMappedToken='S0016691015';
+	        SET OutputRoot.Properties.IdentityMappedPassword='<Com890>';
+			SET OutputRoot.Properties.IdentitySourceType='usernameAndPassword';
+	        SET OutputRoot.Properties.IdentitySourceToken='S0016691015';
+	        SET OutputRoot.Properties.IdentitySourcePassword='<Com890>';
+			PROPAGATE to TERMINAL 'out2' ;
+		END IF;
+	END;
+
+	CREATE PROCEDURE CopyMessageHeaders() BEGIN
+		DECLARE I INTEGER 1;
+		DECLARE J INTEGER;
+		SET J = CARDINALITY(InputRoot.*[]);
+		WHILE I < J DO
+			SET OutputRoot.*[I] = InputRoot.*[I];
+			SET I = I + 1;
+		END WHILE;
+	END;
+
+	CREATE PROCEDURE CopyEntireMessage() BEGIN
+		SET OutputRoot = InputRoot;
+	END;
+END MODULE;

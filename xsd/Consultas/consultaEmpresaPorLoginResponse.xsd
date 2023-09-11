@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="InformacionEmpresaPorLoginSirap">
+		<xsd:sequence>
+			<xsd:element name="tipoDocumentoEmpresa" type="xsd:string"  nillable="true" minOccurs="0"/>
+			<xsd:element name="numeroDocumentoEmpresa" type="xsd:string"  nillable="true" minOccurs="0"/>
+			<xsd:element name="razonSocialEmpresa" type="xsd:string"  nillable="true" minOccurs="0"/>
+			<xsd:element name="digitoVerificacionEmpresa" type="xsd:string"  nillable="true" minOccurs="0"/>
+			<xsd:element name="tipoEmpresa" type="InformacionTipoEmpresaLogin"  nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="InformacionTipoEmpresaLogin">
+		<xsd:sequence>
+			<xsd:element name="idTipoEmpresa" type="TipoInformacionEmpresaPorLogin"  nillable="true" minOccurs="0"/>
+			<xsd:element name="descripcionTipoEmpresa" type="xsd:string"  nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="InformacionUsuarioEmpresa">
+		<xsd:sequence>
+			<xsd:element name="tipoDocumentoUsuario" type="xsd:string"  nillable="true" minOccurs="0"/>
+			<xsd:element name="numeroDocumentoUsuario" type="xsd:string"  nillable="true" minOccurs="0"/>
+			<xsd:element name="primerNombreUsuario" type="xsd:string"  nillable="true" minOccurs="0"/>
+			<xsd:element name="segundoNombreUsuario" type="xsd:string"  nillable="true" minOccurs="0"/>
+			<xsd:element name="primerApellidoUsuario" type="xsd:string"  nillable="true" minOccurs="0"/>
+			<xsd:element name="SegundoApellidoUsuario" type="xsd:string"  nillable="true" minOccurs="0"/>
+			<xsd:element name="tipoUsuario" type="TipoInformacionEmpresaPorLogin"  nillable="true" minOccurs="0"/>
+			<xsd:element name="correoElectronicoUsuarioEmpresa" type="xsd:string"  nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="MensajeExepcionConsultaEmpresaPorLogin">
+		<xsd:sequence>
+			<xsd:element name="tipoError" type="xsd:string"  nillable="true" minOccurs="0"/>
+			<xsd:element name="codigoError" type="xsd:string"  nillable="true" minOccurs="0"/>
+			<xsd:element name="descripcionError" type="xsd:string"  nillable="true" minOccurs="0"/>
+			<xsd:element name="solucionError" type="xsd:string"  nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="TipoInformacionEmpresaPorLogin">
+		<xsd:sequence>
+			<xsd:element name="idTipo" type="xsd:string"  nillable="true" minOccurs="0"/>
+			<xsd:element name="descripcionTipo" type="xsd:string"  nillable="true" minOccurs="0"/>
+			<xsd:element name="codigoTipo" type="xsd:string"  nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ConsultaEmpresaPorLoginUsuairoResponse">
+		<xsd:sequence>
+			<xsd:element name="usuario" type="InformacionUsuarioEmpresa"  nillable="true" minOccurs="0"/>
+			<xsd:element name="empresa" type="InformacionEmpresaPorLoginSirap"  nillable="true" minOccurs="0"/>
+			<xsd:element name="mensajeExepcionConsultaEmpresaPorLogin"
+				type="MensajeExepcionConsultaEmpresaPorLogin"  nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="consultaEmpresaPorLoginUsuairoResponse"
+		type="ConsultaEmpresaPorLoginUsuairoResponse" />
+</xsd:schema>

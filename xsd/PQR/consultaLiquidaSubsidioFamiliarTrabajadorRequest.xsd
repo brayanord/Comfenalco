@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="ConsultaLiquidaReclamoSubsidioRequest">
+		<xsd:sequence>
+			<xsd:element name="tipoIdentificacionCotizante" type="xsd:string" />
+			<xsd:element name="numeroIdentificacionCotizante" type="xsd:string" />
+			<xsd:element name="periodoInicial" type="xsd:date" />
+			<xsd:element name="periodoFinal" type="xsd:date" />
+			<xsd:element name="tipoIdentificacionEmpr" type="xsd:string" />
+			<xsd:element name="numeroIdentificacionEmpr" type="xsd:string" />
+			<xsd:element name="codigoSucursalEmpr" type="xsd:string" />
+			<xsd:element name="loginUsuarioSolicitaReclamo" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+
+	<xsd:element name="consultaLiquidaReclamoSubsidioRequest"
+		type="ConsultaLiquidaReclamoSubsidioRequest" />
+</xsd:schema>

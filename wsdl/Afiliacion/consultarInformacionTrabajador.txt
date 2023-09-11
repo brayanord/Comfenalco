@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="WSChannelAdapterService" targetNamespace="http://ws.esb.comfenalcovalle.com.co/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://ws.esb.comfenalcovalle.com.co/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<types>
+		<schema elementFormDefault="qualified" targetNamespace="http://ws.esb.comfenalcovalle.com.co/" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://ws.esb.comfenalcovalle.com.co/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+
+			<complexType name="RequestMessageOut">
+				<sequence>
+					<element name="header" nillable="true" type="tns:RequestHeaderOut"/>
+					<element name="body" nillable="true" type="tns:RequestBody"/>
+				</sequence>
+			</complexType>
+
+			<element ibmSchExtn:docRoot="true" name="requestMessageOut" type="tns:RequestMessageOut"/>
+
+			<complexType name="RequestHeaderOut">
+				<complexContent>
+					<extension base="tns:Header">
+						<sequence>
+							<element name="destination" nillable="true" type="tns:Destination"/>
+							<element name="securityCredential" nillable="true" type="tns:SecurityCredential"/>
+							<element name="classification" nillable="true" type="tns:Classification"/>
+						</sequence>
+					</extension>
+				</complexContent>
+			</complexType>
+
+			<complexType name="LogginData">
+				<sequence>
+					<element name="sourceSystemId" nillable="true" type="string"/>
+					<element name="destinationSystemId" nillable="true" type="string"/>
+				</sequence>
+			</complexType>
+
+			<complexType name="Destination">
+				<sequence>
+					<element name="namespace" nillable="true" type="anyURI"/>
+					<element name="name" nillable="true" type="string"/>
+					<element name="operation" nillable="true" type="string"/>
+				</sequence>
+			</complexType>
+
+			<complexType name="SecurityCredential">
+				<sequence>
+					<element name="userName" nillable="true" type="string"/>
+					<element name="userToken" nillable="true" type="anyType"/>
+				</sequence>
+			</complexType>
+
+			<complexType name="Classification">
+				<sequence>
+					<element maxOccurs="unbounded" minOccurs="0" name="classification" nillable="true" type="anyURI"/>
+				</sequence>
+			</complexType>
+
+			<complexType name="Header">
+				<sequence>
+					<element name="invokerDateTime" nillable="true" type="dateTime"/>
+					<element name="moduleId" nillable="true" type="string"/>
+					<element name="systemId" nillable="true" type="string"/>
+					<element name="messageId" nillable="true" type="string"/>
+					<element name="logginData" nillable="true" type="tns:LogginData"/>
+				</sequence>
+			</complexType>
+
+			<complexType name="ResponseHeaderOut">
+				<complexContent>
+					<extension base="tns:Header">
+						<sequence>
+							<element name="destination" nillable="true" type="tns:Destination"/>
+							<element name="responseStatus" nillable="true" type="tns:ResponseStatus"/>
+						</sequence>
+					</extension>
+				</complexContent>
+			</complexType>
+
+			<complexType name="ResponseStatus">
+				<sequence>
+					<element name="statusCode" nillable="true" type="string"/>
+				</sequence>
+			</complexType>
+
+			<complexType name="RequestBody">
+				<sequence>
+					<element name="request" nillable="true" type="tns:Request"/>
+				</sequence>
+			</complexType>
+
+
+			<complexType name="Request">
+				<sequence>
+					<xsd:element name="consultaTrabajadorSirap" type="tns:ConsultaTrabajadorSirap" />
+				</sequence>
+			</complexType>
+
+			<xsd:complexType name="ConsultaTrabajadorSirap">
+				<xsd:sequence>
+					<xsd:element name="tipoDocumento" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="numeroDocumento" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="tipoDocumentoEmpresa" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="numeroDocumentoEmpresa" type="xsd:string" minOccurs="0" nillable="true"/>
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<element name="process" type="tns:process"/>
+			<complexType name="process">
+				<sequence>
+					<element name="RequestMessageOut" nillable="true" type="tns:RequestMessageOut"/>
+				</sequence>
+			</complexType>
+
+			<element name="processResponse" type="tns:processResponse"/>
+			<complexType name="processResponse">
+				<sequence>
+					<element name="return" nillable="true" type="tns:ResponseMessageOut"/>
+				</sequence>
+			</complexType>
+
+			<complexType name="ResponseMessageOut">
+				<sequence>
+					<element name="header" nillable="true" type="tns:ResponseHeaderOut"/>
+					<element name="body" nillable="true" type="tns:ResponseBody"/>
+				</sequence>
+			</complexType>
+
+			<element ibmSchExtn:docRoot="true" name="responseMessageOut" type="tns:ResponseMessageOut"/>
+			<complexType name="ResponseBody">
+				<sequence>
+					<element name="response" nillable="true" type="tns:Response"/>
+					<element maxOccurs="unbounded" minOccurs="0" name="exceptionList" nillable="true" type="tns:ExceptionList"/>
+				</sequence>
+			</complexType>
+
+			<complexType name="Response">
+				<sequence>
+					<xsd:element name="informacionTrabajadorResponse" type="tns:InformacionTrabajador" />
+				</sequence>
+			</complexType>   
+
+			<xsd:complexType name="ConsultaInformacionTrabajador">
+				<xsd:sequence>
+					<xsd:element name="tipoDocumentoTrabajador" type="tns:TipoInformacionConsultaTrabajador" />
+					<xsd:element name="numeroDocumentoTrabajador" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="idPers" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="calidadAfiliado" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="primerApellidoTrabajador" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="segundoApellidoTrabajador" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="primerNombreTrabajador" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="segundoNombreTrabajador" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="sexoTrabajador" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="fechaNacimientoTrabajador" type="xsd:string" />
+					<xsd:element name="estadoCivilTrabajador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="fechaExpedicionCedulaTrabajador" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="municipioExpedicionCedulaTrabajador"	type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="nacionalidadTrabajador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="departamentoExpedicionCedulaTrabajador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="madreCabezaDeHogarTrabajador" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="nivelEscolaridadTrabajador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="gradoEscolaridadTrabajador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="profesionTrabajador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="discapacidadTrabajador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="porcentajeDiscapacidad" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="direccionResidenciaTrabajador" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="barrioResidenciaTrabajador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="municipioResidenciaTrabajador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="departamentoResidenciaTrabajador"
+				type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="tipoViviendaTrabajador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="estratoViviendaTrabajador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="telefonoTrabajador" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="celularTrabajador" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="correoElectronicoTrabajador" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="habeasData" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="activo" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="categoriaCajaTrabajador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="calidadSubsidioTrabajador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="informacionLaboralTrabajador" type="tns:InformacionesLaboralesTrab"  minOccurs="0" nillable="true"/>
+					<xsd:element name="formularioPdf" type="tns:ConsultarAnexo"  minOccurs="0" nillable="true"/>
+					<xsd:element name="otroEmpleador" type="tns:ConsultarOtroEmpleador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="conyuge" type="tns:ConsultarConyuge"  minOccurs="0" nillable="true"/>
+					<xsd:element name="beneficiarios" type="tns:ConsultarBeneficiarios"  minOccurs="0" nillable="true"/>
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="ConsultarAnexo">
+				<xsd:sequence>
+					<xsd:element name="idAgrupador" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="idTipoImagen" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="archivo" type="xsd:base64Binary" minOccurs="0" nillable="true"/>
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="InformacionLaboralTrab">
+				<xsd:sequence>
+					<xsd:element name="tipoAfiliado" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="claseAfiliado" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="municipioLaboraTrabajador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="departamentoLaboraTrabajador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="tipoIdentificacionEmpresaTrabajador"
+				type="tns:TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true"/>
+					<xsd:element name="numeroIdentificacionEmpresaTrabajador"
+				type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="direccionLaboraTrabajador" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="barrioLaboraTrabajador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="digitoVerificacionEmpresaTrabajador"
+				type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="razonSocialEmpresaTrabajador" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="sucursalEmpresaTrabajador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="codigoNominaTrabajador" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="divisionAdministrativaEmpresaTrabajador"
+				type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="fechaIngresoEmpresaTrabajador" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="contratoTrabajador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="cargoTrabajador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="horasMensualesJornadaTrabajador" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="tipoSalarioTrabajador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="valorSalarioBasicoTrabajador" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="valorComisionBonificacionTrabajador"
+				type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="vinculacionLaborTrabajador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="porcentajeAportesTrabajador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="formaDePagoSubsidioTrabajador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="tiposConvenioTrabajador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="codigoBancoTrabajador" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="numeroCuentaBancoTrabajador" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="tipoCuentaBancoTrabajador" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="anexoCertificadoCuentaBancoTrabajador"
+				type="tns:ConsultarAnexos"  minOccurs="0" nillable="true"/>
+					<xsd:element name="sectorEmpresaTrabajador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="fechaRetiroTrabajador" type="xsd:string"  minOccurs="0" nillable="true"/>
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="InformacionesLaboralesTrab">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" nillable="true"
+				name="infoLaboral" type="tns:InformacionLaboralTrab" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="ConsultarAnexos">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded" minOccurs="0" nillable="true" name="anexo"
+				type="tns:ConsultarAnexo" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="ConsultarConyuge">
+				<xsd:sequence>
+					<xsd:element name="tipoConyuge" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="tipoDocumentoConyuge" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="numeroIdentificacionConyuge" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="idPersConyuge" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="primerApellidoConyuge" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="segundoApellidoConyuge" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="primerNombreConyuge" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="segundoNombreConyuge" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="sexoConyuge" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="fechaNacimientoConyuge" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="fechaExpedicionCedulaConyuge" type="xsd:date"  minOccurs="0" nillable="true"/>
+					<xsd:element name="municipioExpedicionCedulaConyuge"
+				type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="nacionalidadConyuge" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="direccionResidenciaConyuge" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="barrioResidenciaConyuge" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="municipioResidenciaConyuge" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="departamentoResidenciaConyuge"
+				type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="telefonoConyuge" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="celularConyuge" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="correoElectronicoConyuge" type="xsd:string" />
+					<xsd:element name="tipoDiscapacidadConyuge" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="inicioRelacionMaritalAnioMesConyuge"
+				type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="nivelEscolaridadConyuge" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="profesionConyuge" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="respuestaSiNoTrabajaConyuge" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="tipoDocumentoEmpresaConyuge" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="numeroIdentificacionEmpresaConyuge"
+				type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="digitoVerificacionEmpleadorConyuge"
+				type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="razonSocialEmpresaConyuge" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="respuestaSiNoSubsidioConyuge" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="nombreCajaCompensacionConyuge" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="horasMensualesJornadaConyuge" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="tipoSalarioConyuge" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="valorSalarioBasicoConyuge" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="valorComisionBonificacionConyuge"
+				type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="cargoConyuge" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+					<xsd:element name="estadoAfiliacionConyuge" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="fechaRetiroConyuge" type="xsd:string"  minOccurs="0" nillable="true"/>
+					<xsd:element name="calidadSubsidioConyuge" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true"/>
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="ConsultarBeneficiario">
+				<xsd:sequence>
+					<xsd:element name="dependeEconomicament" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="estadoAfiliacionBeneficiario" type="xsd:string"  minOccurs="0" nillable="true" />
+					<xsd:element name="tipoDocumentoBeneficiario" type="tns:TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true"/>
+					<xsd:element name="numeroIdentificacionBeneficiario" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="idPersBeneficiario" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="primerApellidoBeneficiario" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="segundoApellidoBeneficiario" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="primerNombreBeneficiario" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="segundoNombreBeneficiario" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="sexoBeneficiario" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="idParentescoBeneficiario" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="respuestaSiNoDependEconomicamentBeneficiario" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="fechaNacimientoBeneficiario" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="fechaExpedicionCedulaBeneficiario" type="xsd:date" minOccurs="0" nillable="true"/>
+					<xsd:element name="municipioExpedicionCedulaBeneficiario" type="tns:TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true"/>
+					<xsd:element name="nacionalidadBeneficiario" type="tns:TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true"/>
+					<xsd:element name="departamentoExpedicionCedulaBeneficiario" type="tns:TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true"/>
+					<xsd:element name="direccionResidenciaBeneficiario" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="barrioResidenciaBeneficiario" type="tns:TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true"/>
+					<xsd:element name="municipioResidenciaBeneficiario" type="tns:TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true"/>
+					<xsd:element name="departamentoResidenciaBeneficiario" type="tns:TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true"/>
+					<xsd:element name="telefonoBeneficiario" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="celularBeneficiario" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="correoElectronicoBeneficiario" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="marcacionMellizoBeneficiario" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="tipoDiscapacidadBeneficiario" type="tns:TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true"/>
+					<xsd:element name="codicionDiscapacidadBeneficiario"	type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="nivelEscolaridadBeneficiario" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="gradoEscolaridadBeneficiario" type="xsd:string" minOccurs="0" nillable="true"/>
+					<xsd:element name="calidadSubsidioBeneficiario" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true" />
+					<xsd:element name="tipoDocumentoPadreBiolog" type="tns:TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+					<xsd:element name="numeroIdentificacionPMadreBiolog" type="xsd:string" minOccurs="0" nillable="true" />
+					<xsd:element name="primerApellidoPMadreBiolog" type="xsd:string" minOccurs="0" nillable="true" />
+					<xsd:element name="segundoApellidoPMadreBiolog" type="xsd:string" minOccurs="0" nillable="true" />
+					<xsd:element name="primerNombrePMadreBiolog" type="xsd:string" minOccurs="0" nillable="true" />
+					<xsd:element name="segundoNombrePMadreBiolog" type="xsd:string" minOccurs="0" nillable="true" />
+					<xsd:element name="sexoPMadreBiolog" type="xsd:string"  minOccurs="0" nillable="true" />
+					<xsd:element name="fechaNacimientoPMadreBiolog" type="xsd:string"  minOccurs="0" nillable="true" />
+					<xsd:element name="tipoDocumentoEmpresaPMadreBiolog" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true" />
+					<xsd:element name="numeroIdentificacionEmpresaPMadreBiolog" type="xsd:string"  minOccurs="0" nillable="true" />
+					<xsd:element name="digitoVerificacionEmpresaPMadreBiolog" type="xsd:string"  minOccurs="0" nillable="true" />
+					<xsd:element name="razonSocialEmpresaPMadreBiolog" type="xsd:string"  minOccurs="0" nillable="true"  />
+					<xsd:element name="tipoSalarioPMadreBiolog" type="tns:TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true"/>
+					<xsd:element name="ValorSalarioPMadreBiolog" type="xsd:string"  minOccurs="0" nillable="true" />
+					<xsd:element name="nombreCajaCompensacionPMadreBiolog"	type="xsd:string"  minOccurs="0" nillable="true" />
+					<xsd:element name="fechaRetiroBeneficiario" type="xsd:date"  minOccurs="0" nillable="true" />
+					<xsd:element name="formularioPdf" type="tns:ConsultarAnexo"  minOccurs="0" nillable="true" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="ConsultarBeneficiarios">
+				<xsd:sequence>
+					<xsd:element maxOccurs="unbounded"  minOccurs="0" nillable="true" 
+				name="consultarBeneficiario" type="tns:ConsultarBeneficiario" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="ConsultarOtroEmpleador">
+				<xsd:sequence>
+					<xsd:element name="tipoDocumentoOtroEmpleador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true" />
+					<xsd:element name="numeroIdentificacionOtroEmpleador"
+				type="xsd:string"  minOccurs="0" nillable="true" />
+					<xsd:element name="digitoVerificacionOtroEmpleador" type="xsd:string"  minOccurs="0" nillable="true" />
+					<xsd:element name="razonSocialEmpresaOtroEmpleador" type="xsd:string"  minOccurs="0" nillable="true" />
+					<xsd:element name="horasJornadaMensualesOtroEmpleador"
+				type="xsd:string"  minOccurs="0" nillable="true" />
+					<xsd:element name="sectorEmpresaOtroEmpleador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true" />
+					<xsd:element name="tipoSalarioOtroEmpleador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true" />
+					<xsd:element name="valorSalarioOtroEmpleador" type="xsd:string"  minOccurs="0" nillable="true" />
+					<xsd:element name="valorComisionBonificacionOtroEmpleador"
+				type="xsd:string"  minOccurs="0" nillable="true" />
+					<xsd:element name="cargoOtroEmpleador" type="tns:TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true" />
+					<xsd:element name="nombreCajaCompensacionOtroEmpleador"
+				type="xsd:string"  minOccurs="0" nillable="true" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="TipoInformacionConsultaTrabajador">
+				<xsd:sequence>
+					<xsd:element name="id" type="xsd:string" minOccurs="0" nillable="true" />
+					<xsd:element name="descripcion" type="xsd:string"  minOccurs="0" nillable="true" />
+					<xsd:element name="codigo" type="xsd:string"  minOccurs="0" nillable="true" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="mensajeExepcion">
+				<xsd:sequence>
+					<xsd:element name="tipoError" type="xsd:string"  minOccurs="0" nillable="true" />
+					<xsd:element name="codigoError" type="xsd:string"  minOccurs="0" nillable="true" />
+					<xsd:element name="descripcionError" type="xsd:string"  minOccurs="0" nillable="true" />
+					<xsd:element name="solucionError" type="xsd:string"  minOccurs="0" nillable="true" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="InformacionTrabajador">
+				<xsd:sequence>
+					<xsd:element name="trabajadores" type="tns:ConsultaInformacionTrabajador" />
+					<xsd:element name="mensajeExepcion" type="tns:mensajeExepcion"  minOccurs="0" nillable="true" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<complexType name="ExceptionList">
+				<sequence>
+					<element name="exception" nillable="true" type="tns:BaseException"/>
+				</sequence>
+			</complexType>
+
+			<complexType name="BaseException">
+				<sequence>
+					<element name="code" nillable="true" type="string"/>
+					<element name="description" nillable="true" type="string"/>
+					<element name="source" nillable="true" type="string"/>
+				</sequence>
+			</complexType>
+		</schema>
+	</types>
+
+	<message name="WSChannelAdapter_process">
+		<part element="tns:requestMessageOut" name="parameters"/>
+	</message>
+	<message name="WSChannelAdapter_processResponse">
+		<part element="tns:responseMessageOut" name="parameters"/>
+	</message>
+	<portType name="WSChannelAdapter">
+		<operation name="process">
+			<input message="tns:WSChannelAdapter_process"/>
+			<output message="tns:WSChannelAdapter_processResponse"/>
+		</operation>
+	</portType>
+	<binding name="WSChannelAdapterSoapHttp" type="tns:WSChannelAdapter">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="process">
+			<soap:operation soapAction="process"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="WSChannelAdapterService">
+		<port binding="tns:WSChannelAdapterSoapHttp" name="SBWSChannelAdapterBean">
+			<soap:address location="https://virtual.comfenalcovalle.com.co/esbtest/WSChannelAdapter"/>
+		</port>
+	</service>
+</definitions>

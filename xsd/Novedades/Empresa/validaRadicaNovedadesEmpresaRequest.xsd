@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:complexType name="NovedadEmpresa">
+		<xsd:sequence>
+			<xsd:element name="tipoNovedadEmpresa" type="xsd:string" />
+			<xsd:element name="tipoDocumento" type="xsd:string" />
+			<xsd:element name="numeroDocumento" type="xsd:string" />
+			<xsd:element name="razonSocial" type="xsd:string" />
+			<xsd:element name="direccion" type="xsd:string" />
+			<xsd:element name="representanteLegal" type="RepresentanteLegalNovedadEmpr" />
+			<xsd:element name="municipio" type="xsd:string" />
+			<xsd:element name="departamento" type="xsd:string" />
+			<xsd:element name="barrio" type="xsd:string" />
+			<xsd:element name="telefono" type="xsd:string" />
+			<xsd:element name="paginaWeb" type="xsd:string" />
+			<xsd:element name="codigoActividadEco" type="xsd:string" />
+			<xsd:element name="informacionSucursal" type="InformacionNovedadSucursal" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RepresentanteLegalNovedadEmpr">
+		<xsd:sequence>
+			<xsd:element name="cargo" type="xsd:string" />
+			<xsd:element name="tipoIdentificacion" type="xsd:string" />
+			<xsd:element name="numeroIdentificacion" type="xsd:string" />
+			<xsd:element name="primerNombre" type="xsd:string" />
+			<xsd:element name="segundoNombre" type="xsd:string" />
+			<xsd:element name="primerApellido" type="xsd:string" />
+			<xsd:element name="segundoApellido" type="xsd:string" />
+			<xsd:element name="sexo" type="xsd:string" />
+			<xsd:element name="fechaNacimiento" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InformacionNovedadSucursal">
+		<xsd:sequence>
+			<xsd:element name="codigo" type="xsd:string" />
+			<xsd:element name="nombre" type="xsd:string" />
+			<xsd:element name="direccion" type="xsd:string" />
+			<xsd:element name="municipio" type="xsd:string" />
+			<xsd:element name="departamento" type="xsd:string" />
+			<xsd:element name="barrio" type="xsd:string" />
+			<xsd:element name="telefono" type="xsd:string" />
+			<xsd:element name="celular" type="xsd:string" />
+			<xsd:element name="numeroFax" type="xsd:string" />
+			<xsd:element name="correoElectronico" type="xsd:string" />
+			<xsd:element name="administrativosSucursal" type="AdministrativosSucursalNovedadEmpr" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AdministrativosSucursalNovedadEmpr">
+		<xsd:sequence>
+			<xsd:element name="personaAdministrativa" minOccurs="0"
+				maxOccurs="unbounded" type="AdministrativoSucursalNovedadEmpr" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AdministrativoSucursalNovedadEmpr">
+		<xsd:sequence>
+			<xsd:element name="cargo" type="xsd:string" />
+			<xsd:element name="tipoIdentificacion" type="xsd:string" />
+			<xsd:element name="numeroIdentificacion" type="xsd:string" />
+			<xsd:element name="primerNombre" type="xsd:string" />
+			<xsd:element name="segundoNombre" type="xsd:string" />
+			<xsd:element name="primerApellido" type="xsd:string" />
+			<xsd:element name="segundoApellido" type="xsd:string" />
+			<xsd:element name="sexo" type="xsd:string" />
+			<xsd:element name="fechaNacimiento" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="validaRadicaNovedadEmpresaRequest" type="NovedadEmpresa"></xsd:element>
+
+</xsd:schema>

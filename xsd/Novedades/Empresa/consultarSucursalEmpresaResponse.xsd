@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="ConsultaSucursalEmpresa">
+		<xsd:sequence>
+			<xsd:element name="tipoDocumentoSucursalEmpresa" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="numeroDocumentoSucursalEmpresa" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="nombreSucursalEmpresa" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="direccionSucursalEmpresa" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="municipioSucursalEmpresa" type="MunicipioSucursalEmpresa" nillable="true" minOccurs="0" />
+			<xsd:element name="barrioSucursalEmpresa" type="BarrioSucursalEmpresa" nillable="true" minOccurs="0" />
+			<xsd:element name="telefonoSucursalEmpresa" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="celularSucursalEmpresa" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="numeroFaxSucursalEmpresa" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="correoElectronicoSucursalEmpresa" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="numeroTrabajadoresSucursalEmpresa" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="estadoSucursalEmpresa" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="cargosSucursalEmpresa" type="CargosSucursalEmpresa" nillable="true" minOccurs="0" />
+
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="MunicipioSucursalEmpresa">
+		<xsd:sequence>
+			<xsd:element name="idMunicipio" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="descripcionMunicipio" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="codigoLeyMunicipio" type="xsd:string" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="BarrioSucursalEmpresa">
+		<xsd:sequence>
+			<xsd:element name="idBarrio" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="descripcionBarrio" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="codigoLeyBarrio" type="xsd:string" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="CargoSucursalEmpresa">
+		<xsd:sequence>
+			<xsd:element name="codigoCargo" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="descripcionCargo" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="tipoDocumentoPersona" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="numeroDocumentoPersona" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="primerApellidoPersona" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="segundoApellidoPersona" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="primerNombrePersona" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="segundoNombrePersona" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="sexoPersona" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="fechaNacimientoPersona" type="xsd:date" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="CargosSucursalEmpresa">
+		<xsd:sequence>
+			<xsd:element name="cargos" type="CargoSucursalEmpresa" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="MensajeExepcionConsultarSucursalEmpresa">
+		<xsd:sequence>
+			<xsd:element name="tipoError" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="codigoError" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="descripcionError" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="solucionError" type="xsd:string" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="TipoInformacionConsultaSucursalResponse">
+		<xsd:sequence>
+			<xsd:element name="idTipo" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="descripcionTipo" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="codigoTipo" type="xsd:string" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ConsultaSucursalEmpresaResponse">
+		<xsd:sequence>
+			<xsd:element name="empresa" type="ConsultaSucursalEmpresa" nillable="true" minOccurs="0" />
+			<xsd:element name="mensajeExcepcion" type="MensajeExepcionConsultarSucursalEmpresa" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="sucursalEmpresa" type="ConsultaSucursalEmpresaResponse" />
+</xsd:schema>

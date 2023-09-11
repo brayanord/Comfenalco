@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:complexType name="RegistrarNovedadEmpresaSucursalNovedad">
+		<xsd:sequence>
+			<xsd:element name="novedadEmpresa" type="NovedadEmprea" />
+			<xsd:element name="novedadsucursal" type="NovedadSucursal" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="NovedadEmprea">
+		<xsd:sequence>
+			<xsd:element name="informacionEmpresa" type="InfomacionEmpresaNovedad" />
+			<xsd:element name="numeroCosecutivoFormularioNovedad"
+				type="xsd:string" />
+			<xsd:element name="codigoEstadoTransaccionNovedad" type="xsd:string" />
+			<xsd:element name="tipoFormularioNovedad" type="xsd:string" />
+			<xsd:element name="tipoUsuarioNovedad" type="xsd:string" />
+			<xsd:element name="registroExitosoNovedad" type="xsd:string" />
+			<xsd:element name="codigoConceptoDevolucionNovedad" type="xsd:string" />
+			<xsd:element name="descripcionConceptoDevolucionNovedad"
+				type="xsd:string" />
+			<xsd:element name="respuestaRyANovedad" type="xsd:string" />
+			<xsd:element name="fechaEnvioNovedad" type="xsd:date" />
+			<xsd:element name="loginUsuarioEnviaNovedad" type="xsd:string" />
+			<xsd:element name="direccionIP" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="InfomacionEmpresaNovedad">
+		<xsd:sequence>
+			<xsd:element name="tipoNovedadEmpresa" type="xsd:string" />
+			<xsd:element name="tipoDocumentoEmpresa" type="xsd:string" />
+			<xsd:element name="numeroDocumentoEmpresa" type="xsd:string" />
+			<xsd:element name="digitoVerificacionEmpresa" type="xsd:string" />
+			<xsd:element name="razonSocialEmpresa" type="xsd:string" />
+			<xsd:element name="representanteLegal" type="RepresentanteLegalEmpresaNovedad" />
+			<xsd:element name="municipoEmpresa" type="xsd:string" />
+			<xsd:element name="barrioUbicacionEmpresa" type="xsd:string" />
+			<xsd:element name="direccionEmpresa" type="xsd:string" />
+			<xsd:element name="telefonoEmpresa" type="xsd:string" />
+			<xsd:element name="urlPaginaWebEmpresa" type="xsd:string" />
+			<xsd:element name="fechaInicioOperacionesEmpresa" type="xsd:date" />
+			<xsd:element name="ActividadEconomica" type="xsd:string" />
+			<xsd:element name="LeyEconomica" type="xsd:string" />
+		</xsd:sequence>
+		
+	</xsd:complexType>
+	<xsd:complexType name="RepresentanteLegalEmpresaNovedad">
+		<xsd:sequence>
+			<xsd:element name="RepresentanteLegal" type="RepresentanteLegalEmpresaNovedades"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<!-- Informacion del Representante Legal -->
+	<xsd:complexType name="RepresentanteLegalEmpresaNovedades">
+		<xsd:sequence>
+			<xsd:element name="cargoRepresentante" type="xsd:string" />
+			<xsd:element name="tipoDocumentoRepresentante" type="xsd:string" />
+			<xsd:element name="numeroDocumentoRepresentante" type="xsd:string" />
+			<xsd:element name="primerApellidoRepresentante" type="xsd:string" />
+			<xsd:element name="segundoApellidoRepresentante" type="xsd:string" />
+			<xsd:element name="primerNombreRepresentante" type="xsd:string" />
+			<xsd:element name="segundoNombreRepresentante" type="xsd:string" />
+			<xsd:element name="sexoRepresentante" type="xsd:string" />
+			<xsd:element name="fechaNacimientoRepresentante" type="xsd:date" />
+			<xsd:element name="estadoCivilRepresentante" type="xsd:string" />
+			<xsd:element name="nivelEstudioRepresentante" type="xsd:string" />
+			<xsd:element name="profesionRepresentante" type="xsd:string" />
+			<xsd:element name="gradoEscolaridadRepresentante" type="xsd:string" />
+			<xsd:element name="calendarioEscolarRepresentante" type="xsd:string" />
+			<xsd:element name="direccionResidenciaRepresentante"
+				type="xsd:string" />
+			<xsd:element name="municipioResidenciaRepresentante"
+				type="xsd:string" />
+			<xsd:element name="barrioResidenciaRepresentante" type="xsd:string" />
+			<xsd:element name="tipoViviendaRepresentante" type="xsd:string" />
+			<xsd:element name="telefonoRepresentante" type="xsd:string" />
+			<xsd:element name="celularRepresentante" type="xsd:string" />
+			<xsd:element name="correoElectronicoRepresentante" type="xsd:string" />
+			<xsd:element name="gradoDiscapacidadRepresentante" type="xsd:string" />
+			<xsd:element name="tipoDiscapacidadRepresentante" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="InfomacionSucursalEmpresaNovedad">
+		<xsd:sequence>
+			<xsd:element name="tipoNovedadSucursal" type="xsd:string" />
+			<xsd:element name="codigoSucursal" type="xsd:string" />
+			<xsd:element name="nombreSucursal" type="xsd:string" />
+			<xsd:element name="municipioSucursal" type="xsd:string" />
+			<xsd:element name="barrioUbicacionSucursal" type="xsd:string" />
+			<xsd:element name="direccionSucursal" type="xsd:string" />
+			<xsd:element name="telefonoSucursal" type="xsd:string" />
+			<xsd:element name="celularSucursal" type="xsd:string" />
+			<xsd:element name="faxSucursal" type="xsd:string" />
+			<xsd:element name="correoElectronicoSucursal" type="xsd:string" />
+			<xsd:element name="codigoEstadoSucursal" type="xsd:string" />
+			<xsd:element name="codigoEstadoEmpresaSucursal" type="xsd:string" />
+			<xsd:element name="codigoCausalNovedadSucursal" type="xsd:string" />
+			<xsd:element name="informacionAdministrativo" type="InformacionAdministrativoSucursal" />
+			<xsd:element name="anexoSinPersonal" type="AnexoNovedad" />
+			<xsd:element name="anexoLiquidada" type="AnexoNovedad" />
+			<xsd:element name="anexoDesistimientoAfiliacion" type="AnexoNovedad" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="InformacionAdministrativoSucursales">
+		<xsd:sequence>
+			<xsd:element name="cargoAdministrativo" type="xsd:string" />
+			<xsd:element name="tipoDocumentoAdministrativo" type="xsd:string" />
+			<xsd:element name="numeroDocumentoAdministrativo" type="xsd:string" />
+			<xsd:element name="primerApellidoAdministrativo" type="xsd:string" />
+			<xsd:element name="segundoApellidoAdministrativo" type="xsd:string" />
+			<xsd:element name="primerNombreAdministrativo" type="xsd:string" />
+			<xsd:element name="segundoNombreAdministrativo" type="xsd:string" />
+			<xsd:element name="sexoAdministrativo" type="xsd:string" />
+			<xsd:element name="fechaNacimientoAdministrativo" type="xsd:date" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="NovedadSucursal">
+		<xsd:sequence>
+			<xsd:element name="informacionSucursal" type="InfomacionSucursalEmpresaNovedad" />
+			<xsd:element name="numeroCosecutivoFormularioNovedad"
+				type="xsd:string" />
+			<xsd:element name="estadoTransaccionNovedad" type="xsd:string" />
+			<xsd:element name="tipoFormularioNovedad" type="xsd:string" />
+			<xsd:element name="tipoUsuarioNovedad" type="xsd:string" />
+			<xsd:element name="tipoDocumentoEmpresa" type="xsd:string" />
+			<xsd:element name="numeroDocumentoEmpresa" type="xsd:string" />
+			<xsd:element name="sucursalEmpresa" type="xsd:string" />
+			<xsd:element name="registroExitosoNovedad" type="xsd:string" />
+			<xsd:element name="respuestaRyANovedad" type="xsd:string" />
+			<xsd:element name="codigoConceptoDevolucionNovedad" type="xsd:string" />
+			<xsd:element name="descripcionConceptoDevolucionNovedad"
+				type="xsd:string" />
+			<xsd:element name="fechaEnvioNovedad" type="xsd:date" />
+			<xsd:element name="loginUsuarioEnviaNovedad" type="xsd:string" />
+			<xsd:element name="direccionIP" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+
+	<!-- Anexos -->
+	<xsd:complexType name="AnexoNovedad">
+		<xsd:sequence>
+			<xsd:element name="idAgrupador" type="xsd:string" />
+			<xsd:element name="referencia1" type="xsd:string" />
+			<xsd:element name="referencia2" type="xsd:string" />
+			<xsd:element name="idTipoImagen" type="xsd:string" />
+			<xsd:element name="login" type="xsd:string" />
+			<xsd:element name="archivo" type="xsd:base64Binary" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="InformacionAdministrativoSucursal">
+		<xsd:sequence>
+			<xsd:element name="AdministrativoSucursales" type="InformacionAdministrativoSucursales"
+				minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="registraNovedadEmpresaSucursal" type="RegistrarNovedadEmpresaSucursalNovedad" />
+</xsd:schema>

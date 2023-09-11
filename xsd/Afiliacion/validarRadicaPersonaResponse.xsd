@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="validarRadicaPersonaResponse" type="ValidarRadicaPersonasResponse" />
+	<xsd:complexType name="ValidarRadicaPersonasResponse">
+		<xsd:sequence>
+			<xsd:element name="mensajeExepcion" type="MensajeExcepcionValidarRadicaPersona" nillable="true" minOccurs="0"/>
+			<xsd:element name="mensajeExitoso" type="MensajeExitosoValidarRadicaPersona" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MensajeExcepcionValidarRadicaPersona">
+		<xsd:sequence>
+			<xsd:element name="tipoError" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="codigoError" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="descripcionError" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="solucionError" type="xsd:string" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MensajeExitosoValidarRadicaPersona">
+		<xsd:sequence>
+			<xsd:element name="mensajeRespuesta" type="xsd:string" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

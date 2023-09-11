@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:complexType name="InformacionClaseAfiliado">
+		<xsd:sequence>
+			<xsd:element name="idClaf" type="xsd:string" minOccurs="0" nillable="true"/>
+			<xsd:element name="descripcion" type="xsd:string" minOccurs="0" nillable="true"/>
+			<xsd:element name="idPpap" type="xsd:string" minOccurs="0" nillable="true"/>
+			<xsd:element name="descripcionPpap" type="xsd:string" minOccurs="0" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+
+	<xsd:complexType name="MensajeExepcionConsultaClaseAfiliado">
+		<xsd:sequence>
+			<xsd:element name="tipoError" type="xsd:string" minOccurs="0" nillable="true"/>
+			<xsd:element name="codigoError" type="xsd:string" minOccurs="0" nillable="true"/>
+			<xsd:element name="descripcionError" type="xsd:string" minOccurs="0" nillable="true"/>
+			<xsd:element name="solucionError" type="xsd:string" minOccurs="0" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InformacionClasesAfiliados">
+		<xsd:sequence>
+			<xsd:element name="clase" type="InformacionClaseAfiliado" minOccurs="0" maxOccurs="unbounded" nillable="true"/>
+
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultaClaseAfiliadoResponse">
+		<xsd:sequence>
+			<xsd:element name="claseAfiliado" type="InformacionClasesAfiliados" minOccurs="0" nillable="true" />
+			<xsd:element name="mensajeExepcion" type="MensajeExepcionConsultaClaseAfiliado" minOccurs="0" nillable="true" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+	<xsd:element name="consultaClaseAfiliadoResponse" type="ConsultaClaseAfiliadoResponse" />
+
+</xsd:schema>

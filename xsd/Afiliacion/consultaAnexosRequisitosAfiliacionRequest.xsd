@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="ConsultaAnexosRequisitosAfiliacion">
+		<xsd:sequence>
+			<xsd:element name="tipoDocumentoAfiliado" type="xsd:string"></xsd:element>
+			<xsd:element name="numeroDocumentoAfiliado" type="xsd:string"></xsd:element>
+			<xsd:element name="tiposImagenesSolicitadas" type="tiposImagenesSolicitadas"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="tipoImagenSolicitada">
+		<xsd:sequence>
+			<xsd:element name="idTipoImagen" type="xsd:string"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="tiposImagenesSolicitadas">
+		<xsd:sequence>
+			<xsd:element name="tipoImagen" type="tipoImagenSolicitada"
+				minOccurs="1" maxOccurs="unbounded"></xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+
+	<xsd:element name="consultaAnexosRequeridosRequest" type="ConsultaAnexosRequisitosAfiliacion"></xsd:element>
+</xsd:schema>

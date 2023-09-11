@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:complexType name="ConsultaInformacionTrabajador">
+		<xsd:sequence>
+			<xsd:element name="tipoDocumentoTrabajador" type="TipoInformacionConsultaTrabajador" />
+			<xsd:element name="numeroDocumentoTrabajador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="idPers" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="calidadAfiliado" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="primerApellidoTrabajador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="segundoApellidoTrabajador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="primerNombreTrabajador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="segundoNombreTrabajador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="sexoTrabajador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="fechaNacimientoTrabajador" type="xsd:string" />
+			<xsd:element name="estadoCivilTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="fechaExpedicionCedulaTrabajador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="municipioExpedicionCedulaTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="nacionalidadTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="departamentoExpedicionCedulaTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="madreCabezaDeHogarTrabajador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="nivelEscolaridadTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="gradoEscolaridadTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="profesionTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="discapacidadTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="porcentajeDiscapacidad" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="direccionResidenciaTrabajador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="barrioResidenciaTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="municipioResidenciaTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="departamentoResidenciaTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="tipoViviendaTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="estratoViviendaTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="telefonoTrabajador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="celularTrabajador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="correoElectronicoTrabajador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="habeasData" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="activo" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="categoriaCajaTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="calidadSubsidioTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="informacionLaboralTrabajador" type="InformacionesLaboralesTrab" minOccurs="0" nillable="true" />
+			<xsd:element name="formularioPdf" type="ConsultarAnexo" minOccurs="0" nillable="true" />
+			<xsd:element name="otroEmpleador" type="ConsultarOtroEmpleador" minOccurs="0" nillable="true" />
+			<xsd:element name="conyuge" type="ConsultarConyuge" minOccurs="0" nillable="true" />
+			<xsd:element name="beneficiarios" type="ConsultarBeneficiarios" minOccurs="0" nillable="true" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ConsultarAnexo">
+		<xsd:sequence>
+			<xsd:element name="idAgrupador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="idTipoImagen" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="archivo" type="xsd:base64Binary" minOccurs="0" nillable="true" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="InformacionLaboralTrab">
+		<xsd:sequence>
+			<xsd:element name="tipoAfiliado" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="claseAfiliado" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="municipioLaboraTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="departamentoLaboraTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="tipoIdentificacionEmpresaTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="numeroIdentificacionEmpresaTrabajador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="direccionLaboraTrabajador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="barrioLaboraTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="digitoVerificacionEmpresaTrabajador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="razonSocialEmpresaTrabajador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="sucursalEmpresaTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="codigoNominaTrabajador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="divisionAdministrativaEmpresaTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="fechaIngresoEmpresaTrabajador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="contratoTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="cargoTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="horasMensualesJornadaTrabajador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="tipoSalarioTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="valorSalarioBasicoTrabajador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="valorComisionBonificacionTrabajador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="vinculacionLaborTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="porcentajeAportesTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="formaDePagoSubsidioTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="tiposConvenioTrabajador" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="codigoBancoTrabajador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="numeroCuentaBancoTrabajador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="tipoCuentaBancoTrabajador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="anexoCertificadoCuentaBancoTrabajador" type="ConsultarAnexos" minOccurs="0" nillable="true" />
+			<xsd:element name="sectorEmpresaTrabajador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="fechaRetiroTrabajador" type="xsd:string" minOccurs="0" nillable="true" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="InformacionesLaboralesTrab">
+		<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" minOccurs="0" nillable="true" name="infoLaboral" type="InformacionLaboralTrab" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="ConsultarAnexos">
+		<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" minOccurs="0" nillable="true" name="anexo" type="ConsultarAnexo" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ConsultarConyuge">
+		<xsd:sequence>
+			<xsd:element name="tipoConyuge" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="tipoDocumentoConyuge" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="numeroIdentificacionConyuge" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="idPersConyuge" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="primerApellidoConyuge" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="segundoApellidoConyuge" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="primerNombreConyuge" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="segundoNombreConyuge" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="sexoConyuge" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="fechaNacimientoConyuge" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="fechaExpedicionCedulaConyuge" type="xsd:date" minOccurs="0" nillable="true" />
+			<xsd:element name="municipioExpedicionCedulaConyuge" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="nacionalidadConyuge" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="direccionResidenciaConyuge" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="barrioResidenciaConyuge" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="municipioResidenciaConyuge" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="departamentoResidenciaConyuge" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="telefonoConyuge" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="celularConyuge" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="correoElectronicoConyuge" type="xsd:string" />
+			<xsd:element name="tipoDiscapacidadConyuge" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="inicioRelacionMaritalAnioMesConyuge" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="nivelEscolaridadConyuge" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="profesionConyuge" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="respuestaSiNoTrabajaConyuge" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="tipoDocumentoEmpresaConyuge" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="numeroIdentificacionEmpresaConyuge" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="digitoVerificacionEmpleadorConyuge" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="razonSocialEmpresaConyuge" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="respuestaSiNoSubsidioConyuge" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="nombreCajaCompensacionConyuge" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="horasMensualesJornadaConyuge" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="tipoSalarioConyuge" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="valorSalarioBasicoConyuge" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="valorComisionBonificacionConyuge" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="cargoConyuge" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="estadoAfiliacionConyuge" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="fechaRetiroConyuge" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="calidadSubsidioConyuge" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ConsultarBeneficiario">
+		<xsd:sequence>
+			<xsd:element name="dependeEconomicament" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="estadoAfiliacionBeneficiario" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="tipoDocumentoBeneficiario" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="numeroIdentificacionBeneficiario" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="idPersBeneficiario" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="primerApellidoBeneficiario" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="segundoApellidoBeneficiario" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="primerNombreBeneficiario" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="segundoNombreBeneficiario" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="sexoBeneficiario" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="idParentescoBeneficiario" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="respuestaSiNoDependEconomicamentBeneficiario" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="fechaNacimientoBeneficiario" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="fechaExpedicionCedulaBeneficiario" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="municipioExpedicionCedulaBeneficiario" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="nacionalidadBeneficiario" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="departamentoExpedicionCedulaBeneficiario" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true"/>
+			<xsd:element name="direccionResidenciaBeneficiario" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="barrioResidenciaBeneficiario" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="municipioResidenciaBeneficiario" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="departamentoResidenciaBeneficiario" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="telefonoBeneficiario" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="celularBeneficiario" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="correoElectronicoBeneficiario" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="marcacionMellizoBeneficiario" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="tipoDiscapacidadBeneficiario" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="codicionDiscapacidadBeneficiario" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="nivelEscolaridadBeneficiario" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="gradoEscolaridadBeneficiario" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="calidadSubsidioBeneficiario" type="TipoInformacionConsultaTrabajador"  minOccurs="0" nillable="true" />
+			<xsd:element name="tipoDocumentoPadreBiolog" type="TipoInformacionConsultaTrabajador" minOccurs="0"  />
+			<xsd:element name="numeroIdentificacionPMadreBiolog" type="xsd:string" minOccurs="0"  />
+			<xsd:element name="primerApellidoPMadreBiolog" type="xsd:string" minOccurs="0" />
+			<xsd:element name="segundoApellidoPMadreBiolog" type="xsd:string" minOccurs="0"  />
+			<xsd:element name="primerNombrePMadreBiolog" type="xsd:string" minOccurs="0"  />
+			<xsd:element name="segundoNombrePMadreBiolog" type="xsd:string" minOccurs="0"  />
+			<xsd:element name="sexoPMadreBiolog" type="xsd:string" minOccurs="0"  />
+			<xsd:element name="fechaNacimientoPMadreBiolog" type="xsd:string" minOccurs="0"  />
+			<xsd:element name="tipoDocumentoEmpresaPMadreBiolog" type="TipoInformacionConsultaTrabajador" minOccurs="0"  />
+			<xsd:element name="numeroIdentificacionEmpresaPMadreBiolog" type="xsd:string" minOccurs="0"  />
+			<xsd:element name="digitoVerificacionEmpresaPMadreBiolog" type="xsd:string" minOccurs="0"  />
+			<xsd:element name="razonSocialEmpresaPMadreBiolog" type="xsd:string" minOccurs="0"  />
+			<xsd:element name="tipoSalarioPMadreBiolog" type="TipoInformacionConsultaTrabajador" minOccurs="0"/>
+			<xsd:element name="ValorSalarioPMadreBiolog" type="xsd:string" minOccurs="0" />
+			<xsd:element name="nombreCajaCompensacionPMadreBiolog" type="xsd:string" minOccurs="0"  />
+			<xsd:element name="fechaRetiroBeneficiario" type="xsd:date" minOccurs="0"  />
+			<xsd:element name="formularioPdf" type="ConsultarAnexo" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ConsultarBeneficiarios">
+		<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" minOccurs="0" nillable="true" name="consultarBeneficiario" type="ConsultarBeneficiario" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="ConsultarOtroEmpleador">
+		<xsd:sequence>
+			<xsd:element name="tipoDocumentoOtroEmpleador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="numeroIdentificacionOtroEmpleador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="digitoVerificacionOtroEmpleador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="razonSocialEmpresaOtroEmpleador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="horasJornadaMensualesOtroEmpleador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="sectorEmpresaOtroEmpleador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="tipoSalarioOtroEmpleador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="valorSalarioOtroEmpleador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="valorComisionBonificacionOtroEmpleador" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="cargoOtroEmpleador" type="TipoInformacionConsultaTrabajador" minOccurs="0" nillable="true" />
+			<xsd:element name="nombreCajaCompensacionOtroEmpleador" type="xsd:string" minOccurs="0" nillable="true" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="TipoInformacionConsultaTrabajador">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="descripcion" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="codigo" type="xsd:string" minOccurs="0" nillable="true" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="mensajeExepcion">
+		<xsd:sequence>
+			<xsd:element name="tipoError" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="codigoError" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="descripcionError" type="xsd:string" minOccurs="0" nillable="true" />
+			<xsd:element name="solucionError" type="xsd:string" minOccurs="0" nillable="true" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="InformacionTrabajador">
+		<xsd:sequence>
+			<xsd:element name="trabajadores" type="ConsultaInformacionTrabajador" />
+			<xsd:element name="mensajeExepcion" type="mensajeExepcion" minOccurs="0" nillable="true" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="informacionTrabajadorResponse" type="InformacionTrabajador" />
+
+</xsd:schema>

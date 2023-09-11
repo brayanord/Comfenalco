@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+
+	<xsd:complexType name="MensajeExepcionCertificacionEmpresa">
+		<xsd:sequence>
+			<xsd:element name="tipoError" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="codigoError" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="descripcionError" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="solucionError" type="xsd:string" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MensajeExitosoCertificadoEmpresa">
+		<xsd:sequence>
+			<xsd:element name="mensajeRespuesta" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="archivo" type="xsd:base64Binary" nillable="true" minOccurs="0"/>
+			<xsd:element name="numeroCertificado" type="xsd:string" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CertificacionEmpresaResponse">
+		<xsd:sequence>
+			<xsd:element name="mensajeExcepcion" type="MensajeExepcionCertificacionEmpresa" nillable="true" minOccurs="0"/>
+			<xsd:element name="mensajeRespueta" type="MensajeExitosoCertificadoEmpresa" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="certificacionResponse" type="CertificacionEmpresaResponse" />
+</xsd:schema>

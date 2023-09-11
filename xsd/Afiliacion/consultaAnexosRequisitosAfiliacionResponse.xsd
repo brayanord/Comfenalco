@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="DocumentosRequisitosAfiliacion">
+		<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="anexoRequisito" type="AnexoRequisito" nillable="true" />
+			<xsd:element name="estadoAfiliacion" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="fechaRetiroAfiliacion" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="mensajeExepcion" type="MensajeExepcionDocumentosRequeridos" minOccurs="0" nillable="true" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MensajeExepcionDocumentosRequeridos">
+		<xsd:sequence>
+			<xsd:element name="tipoError" type="xsd:string" minOccurs="0" nillable="true"/>
+			<xsd:element name="codigoError" type="xsd:string" minOccurs="0" nillable="true"/>
+			<xsd:element name="descripcionError" type="xsd:string" minOccurs="0" nillable="true"/>
+			<xsd:element name="solucionError" type="xsd:string" minOccurs="0" nillable="true"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="AnexoRequisito">
+		<xsd:sequence>
+			<xsd:element name="idAgrupador" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="referencia1" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="referencia2" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="idTipoImagen" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="descripcionAnexo" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="login" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="archivo" type="xsd:base64Binary" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="documentosRequisitosAfiliacionResponse" type="DocumentosRequisitosAfiliacion"/>
+</xsd:schema>

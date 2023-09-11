@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="InformacionCotizanteNovedad">
+		<xsd:sequence>
+			<xsd:element name="tipoNovedad" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="tipoDocumentoEmpresa" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="numeroDocumentoEmpresa" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="codigoSucursalEmpresa" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="tipoDocumentoCotizante" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="numeroDocumentoCotizante" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="idPersonaCotizante" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="primerApellidoCotizante" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="segundoApellidoCotizante" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="primerNombreCotizante" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="segundoNombreCotizante" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="fechaNacimientoCotizante" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="sexoCotizante" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="departamentoResidenciaCotizante" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="municipioResidenciaCotizante" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="barrioResidenciaCotizante" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="direccionResidenciaCotizante" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="telefonoCotizante" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="celularCotizante" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="correoElectronicoCotizante" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="fechaExpedicionCedulaCotizante" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="municipioExpedicionCedulaContizante" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="codigoNacionalidaContizante" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="formaPagoSubsidioCotizante" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="tipoConvenioCotizante" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="codigoBanco" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="numeroCuentaBanco" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="cargoTrabajador" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="tipoCuentaBanco" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="fechaRetiroCotizante" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="fechaIngresoCotizante" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="fechaDifDinfuncion" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="anexoDocumentoIdentidades" type="AnexosNovedad" nillable="true" minOccurs="0" />
+			<xsd:element name="anexoCertificadoCuentaBancaria" type="AnexosNovedad" nillable="true" minOccurs="0" />
+			<xsd:element name="anexoCertificadoDinfuncion" type="AnexosNovedad" nillable="true" minOccurs="0" />
+			<xsd:element name="anexoCartaFechaIngresoEmpresa" type="AnexosNovedad" nillable="true" minOccurs="0" />
+			<xsd:element name="habeasData" type="xsd:string" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="CotizanteNovedad">
+		<xsd:sequence>
+			<xsd:element name="informacionPersona" type="InformacionCotizanteNovedad" />
+			<xsd:element name="numeroCosecutivoFormularioNovedad" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="codigoEstadoTransaccionNovedad" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="tipoFormularioNovedad" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="tipoUsuarioNovedad" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="registroExitosoNovedad" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="respuestaRyANovedad" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="fechaGrabaNovedad" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="loginUsuario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="direccionIP" type="xsd:string" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="InformacionBeneficiarioNovedad">
+		<xsd:sequence>
+			<xsd:element name="tipoNovedad" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="tipoDocumentoEmpresa" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="numeroDocumentoEmpresa" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="codigoSucursalEmpresa" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="tipoDocumentoCotizante" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="numeroDocumentoCotizante" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="idPersonaCotizante" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="tipoDocumentoBeneficiario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="numeroDocumentoBeneficiario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="idPersonaBeneficiario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="primerApellidoBeneficiario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="segundoApellidoBeneficiario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="primerNombreBeneficiario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="segundoNombreBeneficiario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="fechaNacimientoBeneficiario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="sexoBeneficiario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="municipioResidenciaBeneficiario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="barrioResidenciaBeneficiario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="direccionResidenciaBeneficiario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="telefonoBeneficiario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="celularBeneficiario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="correoElectronicoBeneficiario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="fechaExpedicionCedulaBeneficiario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="municipioExpedicionCedulaBeneficiario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="cargoBeneficiario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="fechaDifDinfuncion" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="fechaRetiroBeneficiario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="codigoNacionalidaBeneficiario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="anexoDocumentoIdentidad" type="AnexosNovedad" nillable="true" minOccurs="0" />
+			<xsd:element name="anexoCertificadoDefuncionBen" type="AnexosNovedad" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="BeneficiarioNovedad">
+		<xsd:sequence>
+			<xsd:element name="informacionPersona" type="InformacionBeneficiarioNovedad" nillable="true" minOccurs="0" />
+			<xsd:element name="numeroCosecutivoFormularioNovedad" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="codigoEstadoTransaccionNovedad" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="tipoFormularioNovedad" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="tipoUsuarioNovedad" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="registroExitosoNovedad" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="respuestaRyANovedad" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="fechaGrabaNovedad" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="loginUsuario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="direccionIP" type="xsd:string" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="AnexosNovedad">
+		<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="anexonovedades" type="AnexoNovedadPersona" nillable="true" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<!-- Anexos -->
+	<xsd:complexType name="AnexoNovedadPersona">
+		<xsd:sequence>
+			<xsd:element name="idAgrupador" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="referencia1" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="referencia2" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="idTipoImagen" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="nombreArchivo" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="login" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="archivo" type="xsd:base64Binary" nillable="true" minOccurs="0" />
+		        <xsd:element name="esBeneficiario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element minOccurs="0" name="idPare" nillable="true" type="xsd:string"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="TipoInformacionGrabaNovedadPersona">
+		<xsd:sequence>
+			<xsd:element name="idTipo" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="descripcionTipo" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="codigoTipo" type="xsd:string" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="NovedadPersonaRequest">
+		<xsd:sequence>
+			<xsd:element name="cotizanteNovedad" type="CotizanteNovedad" nillable="true" minOccurs="0" />
+			<xsd:element name="beneficiarioNovedad" type="BeneficiarioNovedad" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="registraNovedadPersona" type="NovedadPersonaRequest" />
+</xsd:schema>

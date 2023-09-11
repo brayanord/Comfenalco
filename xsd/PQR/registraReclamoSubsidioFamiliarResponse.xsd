@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	
+	<xsd:element name="registraReclamosSubsidioFamiResponse" type="RegistraReclamosSubsidioFamiResponse" />
+	
+	<xsd:complexType name="RegistraReclamosSubsidioFamiResponse">
+		<xsd:sequence>
+			<xsd:element name="mensajeExcepcion" type="MensajeExcepcionRegistroReclamosSub" />
+			<xsd:element name="mensajeExitoso" type="MensajeExitosoRegistroReclamosSub" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="MensajeExcepcionRegistroReclamosSub">
+		<xsd:sequence>
+			<xsd:element name="tipoError" type="xsd:string" />
+			<xsd:element name="codigoError" type="xsd:string" />
+			<xsd:element name="descripcionError" type="xsd:string" />
+			<xsd:element name="solucionError" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="MensajeExitosoRegistroReclamosSub">
+		<xsd:sequence>
+			<xsd:element name="mensajeRespuesta" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	
+</xsd:schema>

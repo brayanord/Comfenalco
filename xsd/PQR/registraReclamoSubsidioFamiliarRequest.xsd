@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="RegistraReclamoSubsidioFamilRequest">
+		<xsd:sequence>
+			<xsd:element name="reclamosSubsidio" type="BloqueReclamosSubsidios" />
+			<xsd:element name="historias" type="BloqueHistoriasCalidad" />
+			<xsd:element name="receptores" type="BloqueReceptoresSubsidio" />
+			<xsd:element name="fechaRegistroReclamo" type="xsd:date" />
+			<xsd:element name="loginUsuario" type="xsd:string" />
+			<xsd:element name="ipOrigen" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="BloqueReclamosSubsidios">
+		<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="subsidio"
+				type="BloqueReclamoSubsidio" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BloqueReclamoSubsidio">
+		<xsd:sequence>
+			<xsd:element name="numeroCuenta" type="xsd:string" />
+			<xsd:element name="prima" type="xsd:string" />
+			<xsd:element name="periodoInicial" type="xsd:date" />
+			<xsd:element name="periodoFinal" type="xsd:date" />
+			<xsd:element name="idDocu" type="xsd:string" />
+			<xsd:element name="idPersona" type="xsd:string" />
+			<xsd:element name="idSucursalEmpresa" type="xsd:string" />
+			<xsd:element name="idTipoReclaSubsi" type="xsd:string" />
+			<xsd:element name="idEstadoReclamo" type="xsd:string" />
+			<xsd:element name="idFormaPago" type="xsd:string" />
+			<xsd:element name="idUsuario" type="xsd:string" />
+			<xsd:element name="idPersAutoriza" type="xsd:string" />
+			<xsd:element name="idEmpresa" type="xsd:string" />
+			<xsd:element name="idTipoMedioIngreso" type="xsd:string" />
+			<xsd:element name="idTipoFuenteError" type="xsd:string" />
+			<xsd:element name="idTiposCuentaBanco" type="xsd:string" />
+			<xsd:element name="idMotivoNoAutori" type="xsd:string" />
+			<xsd:element name="idUsuarioAutoriza" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="BloqueHistoriasCalidad">
+		<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" minOccurs="0"
+				name="calidadSubsidio" type="BloqueHistoriaCalidadSubsidio" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BloqueHistoriaCalidadSubsidio">
+		<xsd:sequence>
+			<xsd:element name="periodo" type="xsd:date" />
+			<xsd:element name="secuencia" type="xsd:string" />
+			<xsd:element name="idPersona" type="xsd:string" />
+			<xsd:element name="idPersonaPariente" type="xsd:string" />
+			<xsd:element name="secuenciaPariente" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="BloqueReceptoresSubsidio">
+		<xsd:sequence>
+			<xsd:element maxOccurs="unbounded" minOccurs="0"
+				name="receptorSubsidio" type="BloqueReceptorSubsidio" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BloqueReceptorSubsidio">
+		<xsd:sequence>
+			<xsd:element name="idPersona" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+
+
+	<xsd:element name="registraReclamoSubsidioFamilRequest"
+		type="RegistraReclamoSubsidioFamilRequest" />
+
+</xsd:schema>

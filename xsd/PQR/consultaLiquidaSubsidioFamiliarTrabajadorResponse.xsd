@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="InformacionReclamoProcedente">
+		<xsd:sequence>
+			<xsd:element name="tipoIdentificacionCotizante"
+				type="TipoInformacionLiquidaSubsidioFamiliarResponse" />
+			<xsd:element name="numeroIdentificacionCotizante" type="xsd:string" />
+			<xsd:element name="primerApellidoCotizante" type="xsd:string" />
+			<xsd:element name="segundoApellidoCotizante" type="xsd:string" />
+			<xsd:element name="primerNombreCotizante" type="xsd:string" />
+			<xsd:element name="segundoNombreCotizante" type="xsd:string" />
+			<xsd:element name="periodoAnioMes" type="xsd:string" />
+			<xsd:element name="valorLiquidado" type="xsd:string" />
+			<xsd:element name="deuda" type="xsd:string" />
+			<xsd:element name="valoraPagar" type="xsd:string" />
+		</xsd:sequence>
+
+	</xsd:complexType>
+	<xsd:complexType name="InformacionReclamoNoProcedente">
+		<xsd:sequence>
+			<xsd:element name="periodoAnioMes" type="xsd:string" />
+			<xsd:element name="beneficiariosNoProcedentes" type="InformacionBeneficiariosNoProcedente" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="InformacionBeneficiarioNoProcedente">
+		<xsd:sequence>
+			<xsd:element name="tipoIdentificacionBeneficiario"
+				type="TipoInformacionLiquidaSubsidioFamiliarResponse" />
+			<xsd:element name="numeroIdentificacionBeneficiario"
+				type="xsd:string" />
+			<xsd:element name="primerApellidoBeneficiario" type="xsd:string" />
+			<xsd:element name="segundoApellidoBeneficiario" type="xsd:string" />
+			<xsd:element name="primerNombreBeneficiario" type="xsd:string" />
+			<xsd:element name="segundoNombreBeneficiario" type="xsd:string" />
+			<xsd:element name="respuestaLiquidado" type="xsd:string" />
+			<xsd:element name="motivo" type="MotivoNoProcedente" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="InformacionBeneficiariosNoProcedente">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" maxOccurs="unbounded" name="bebeficiarios"
+				type="InformacionBeneficiarioNoProcedente" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="MotivoNoProcedente">
+		<xsd:sequence>
+			<xsd:element name="idTipoMotivoReclamo" type="xsd:string" />
+			<xsd:element name="descripcionMotivoReclamo" type="xsd:string" />
+			<xsd:element name="idTipoReclamo" type="xsd:string" />
+			<xsd:element name="descripcionTipoReclamo" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="PeriodoReclamoSubsidio">
+		<xsd:sequence>
+			<xsd:element name="procedente" type="InformacionReclamoProcedente" />
+			<xsd:element name="noProcedente" type="InformacionReclamoNoProcedente" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="MensajeExepcionReclamoSubsidio">
+		<xsd:sequence>
+			<xsd:element name="tipoError" type="xsd:string" />
+			<xsd:element name="codigoError" type="xsd:string" />
+			<xsd:element name="descripcionError" type="xsd:string" />
+			<xsd:element name="solucionError" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MensajeRespuestaInconsistencia">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" maxOccurs="unbounded" name="inconsistencia"
+				type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="TipoInformacionLiquidaSubsidioFamiliarResponse">
+		<xsd:sequence>
+			<xsd:element name="idTipo" type="xsd:string" />
+			<xsd:element name="descripcionTipo" />
+			<xsd:element name="codigoTipo" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="PeriodosReclamoSubsidioResponse">
+		<xsd:sequence>
+			<xsd:element name="numeroDocumentoReclamo" type="xsd:string" />
+			<xsd:element name="periodosReclamo" type="PeriodoReclamoSubsidio"
+				minOccurs="0" maxOccurs="unbounded" />
+			<xsd:element name="mensajeInconsistencia" type="MensajeRespuestaInconsistencia" />
+			<xsd:element name="mensajeExepcion" type="MensajeExepcionReclamoSubsidio" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="periodosReclamoSubsidioResponse" type="PeriodosReclamoSubsidioResponse" />
+</xsd:schema>

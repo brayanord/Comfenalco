@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+
+
+
+	<xsd:complexType name="BloqueConsultaSubsidioFamiliarPorTrabajador">
+		<xsd:sequence>
+			<xsd:element name="periodoSubsidio" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="valorLiquidado" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="abono" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="valorPagado" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="formaPago" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="nombreEmpresa" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="porcentajeLey1429" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="numeroBeneficiarios" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="personaAutorizada" type="RegistroAportesInformacionPersonaAutorizada" nillable="true" minOccurs="0" />
+			<xsd:element name="beneficiarios" type="RegistroAportesInformacionBeneficiarios" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="RegistroAportesInformacionPersonaAutorizada">
+		<xsd:sequence>
+			<xsd:element name="tipoDocumentoPerosna" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="numeroDocumentoPerosna" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="primerNombrePerosna" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="segundoNombrePerosna" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="primerApellidoPerosna" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="SegundoApellidoPerosna" type="xsd:string" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="RegistroAportesInformacionBeneficiario">
+		<xsd:sequence>
+			<xsd:element name="tipoDocumentoBeneficiario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="numeroDocumentoBeneficiario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="NombreCompleto" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="parentescoBeneficiario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="edadBeneficiario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="tipoCuotaSubsidioBeneficiario" type="xsd:string" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="RegistroAportesInformacionBeneficiarios">
+		<xsd:sequence>
+			<xsd:element name="beneficiarios" type="RegistroAportesInformacionBeneficiario" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="BloqueConsultaAportesPorTrabajadorDet">
+		<xsd:sequence>
+			<xsd:element name="periodo" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="cotizacion" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="ingresoBase" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="salarioBase" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="dias" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="novedadesAportesTrabajador" type="InformacionNovedadesAportesPorTrabajador" nillable="true" minOccurs="0" />
+			<xsd:element name="razonSocialPagoAporte" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="nitPagoAporte" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="fechaRecaudo" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="interesesMora" type="xsd:string" nillable="true" minOccurs="0" />
+			<!-- en este campo se va a definir bajo que ley esta acogida la empresa -->
+			<xsd:element name="beneficioLey" type="xsd:string" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="BloqueConsultaAportesPorTrabajador">
+		<xsd:sequence>
+			<xsd:element name="aportesTrab" type="BloqueConsultaAportesPorTrabajadorDet" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="InformacionNovedadesAportesPorTrabajador">
+		<xsd:sequence>
+			<xsd:element name="ingresoTrabajador" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="retiroTrabajador" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="variacionPermanenteSalario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="variacionTransitoriaSalario" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="suspencionTemporalLicencia" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="incapacidadTemporal" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="licenciaMaterniadad" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="incapacidad" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="vacaciones" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="correciones" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="salarioIntegral" type="xsd:string" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="BloqueConsultaEstadoTarjetaServicioPorTrabajador">
+		<xsd:sequence>
+			<xsd:element name="nombreEstado" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="descripcionEstado" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="numeroTarjeta" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="razonSocialEmpresa" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="fechaEntregado" type="xsd:string" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="BloqueConsultaEstadoTarjeta">
+		<xsd:sequence>
+			<xsd:element name="TarjetaServicios" type="BloqueConsultaEstadoTarjetaServicioPorTrabajador" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="BloqueConsultaAfiliacionGrupoFamiliarPorTrabajador">
+		<xsd:sequence>
+			<xsd:element name="cotizante" type="InformacionCotizanteBeneficiarioGrupoFamiliarPorTrabajador" nillable="true" minOccurs="0" />
+			<xsd:element name="beneficiarios" type="InformacionCotizanteBeneficiarioGrupoFamiliarPorTrabajador" maxOccurs="unbounded" nillable="true"
+				minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="InformacionCotizanteBeneficiarioGrupoFamiliarPorTrabajador">
+		<xsd:sequence>
+			<xsd:element name="tipoIdentificacion" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="numeroIdentificacion" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="nombreCompleto" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="parentesco" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="edad" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="estado" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="calidadAfiliado" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="categoriaAfiliado" type="xsd:string" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="BloqueConsultaReclamosTraba">
+		<xsd:sequence>
+			<xsd:element name="numeroReclamo" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="nombreReclamo" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="descripcionReclamo" type="xsd:string" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="BloqueConsultaReclamoSFDPorTrabajador">
+		<xsd:sequence>
+			<xsd:element name="reclamos" type="BloqueConsultaReclamosTraba" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="BloqueConsultaReclamoSubsidioFamiliarTarjeta">
+		<xsd:sequence>
+
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="MensajeExcepcionConsultaRegistroAportesPorTrabajador">
+		<xsd:sequence>
+			<xsd:element name="tipoError" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="codigoError" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="descripcionError" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="solucionError" type="xsd:string" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="TipoInformacionRegistroAportesPorTrabajadorResponse">
+		<xsd:sequence>
+			<xsd:element name="idTipo" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="descripcionTipo" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="codigoTipo" type="xsd:string" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="BloqueConsultaSubsidioFamiliar">
+		<xsd:sequence>
+			<xsd:element name="SubsidioFamiliar" type="BloqueConsultaSubsidioFamiliarPorTrabajador" nillable="true" minOccurs="0" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+	<xsd:complexType name="ConsultaRegistroAportesPorTrabajadorResponse">
+		<xsd:sequence>
+			<xsd:element name="fechaRegsitroConsulta" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="subsidioFamiliarMonetario" type="BloqueConsultaSubsidioFamiliar" nillable="true" minOccurs="0" />
+			<xsd:element name="aportes" type="BloqueConsultaAportesPorTrabajador" nillable="true" minOccurs="0" />
+			<xsd:element name="estadoTarjetaServicios" type="BloqueConsultaEstadoTarjeta" nillable="true" minOccurs="0" />
+			<xsd:element name="afiliacionGrupoFamiliar" type="BloqueConsultaAfiliacionGrupoFamiliarPorTrabajador" nillable="true" minOccurs="0" />
+			<xsd:element name="estadoReclamoSFD" type="BloqueConsultaReclamoSFDPorTrabajador" nillable="true" minOccurs="0" />
+			<xsd:element name="saldoSubsidioFamiliar" type="BloqueConsultaReclamoSubsidioFamiliarTarjeta" nillable="true" minOccurs="0" />
+			<xsd:element name="mensajeExcepcion" type="MensajeExcepcionConsultaRegistroAportesPorTrabajador" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="consultaRegistroAportesPorTrabajadorResponse" type="ConsultaRegistroAportesPorTrabajadorResponse" />
+
+</xsd:schema>

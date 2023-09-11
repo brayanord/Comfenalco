@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="CertificadoEscolaridadBeneficiario">
+		<xsd:sequence>
+			<xsd:element name="archivo" type="xsd:base64Binary" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+
+	<xsd:complexType name="MensajeExepcionCertificadoEscolaridadTrabajador">
+		<xsd:sequence>
+			<xsd:element name="tipoError" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="codigoError" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="descripcionError" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="solucionError" type="xsd:string" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="MensajeExitosoCertificadoEscolarBeneficiario">
+		<xsd:sequence>
+			<xsd:element name="mensajeRespuesta" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="archivos" type="CertificadoEscolaridadBeneficiario" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="CertificacionEscolaridadTrabajadorResponse">
+		<xsd:sequence>
+			<xsd:element name="certificadosEscolaridad" type="MensajeExitosoCertificadoEscolarBeneficiario" nillable="true" minOccurs="0" />
+			<xsd:element name="mensajeExcepcion" type="MensajeExepcionCertificadoEscolaridadTrabajador" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="certificacionEscolaridadTrabajadorResponse" type="CertificacionEscolaridadTrabajadorResponse" />
+</xsd:schema>

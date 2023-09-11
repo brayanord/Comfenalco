@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:element name="registrarAfiliacionResponse" type="RegistrarAfiliacionResponse" />
+
+	<xsd:complexType name="RegistrarAfiliacionResponse">
+		<xsd:sequence>
+			<xsd:element name="mensajeRespuesta" type="MensajeExitosoRegistrarAfiliacion" nillable="true" minOccurs="0" />
+			<xsd:element name="mensajeExepcion" type="MensajeExcepcionRegistrarAfiliacion" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="MensajeExcepcionRegistrarAfiliacion">
+		<xsd:sequence>
+			<xsd:element name="tipoError" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="codigoError" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="descripcionError" type="xsd:string" nillable="true" minOccurs="0" />
+			<xsd:element name="solucionError" type="xsd:string" nillable="true" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="MensajeExitosoRegistrarAfiliacion">
+		<xsd:sequence>
+			<xsd:element name="mensaje" type="xsd:string" minOccurs="0" maxOccurs="unbounded" nillable="true" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>

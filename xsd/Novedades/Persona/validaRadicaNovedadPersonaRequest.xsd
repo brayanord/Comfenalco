@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="ValidaInformacionNovedadAfiliado">
+		<xsd:sequence>
+			<xsd:element name="tipoNovedad" type="xsd:string" />
+			<xsd:element name="tipoDocumentoEmpresa" type="xsd:string" />
+			<xsd:element name="numeroDocumentoEmpresa" type="xsd:string" />
+			<xsd:element name="codigoSucursalEmpresa" type="xsd:string" />
+			<xsd:element name="tipoDocumentoCotizante" type="xsd:string" />
+			<xsd:element name="numeroDocumentoCotizante" type="xsd:string" />
+			<xsd:element name="formaPagoSubsidio" type="xsd:string" />
+			<xsd:element name="tipoPago" type="xsd:string" />
+			<xsd:element name="codigoLeyBanco" type="xsd:string" />
+			<xsd:element name="numeroCuentaBanco" type="xsd:string" />
+			<xsd:element name="tipoCuentaBanco" type="xsd:string" />
+			<xsd:element name="tipoDocumentoBeneficiario" type="xsd:string" />
+			<xsd:element name="numeroDocumentoBeneficiario" type="xsd:string" />
+			<xsd:element name="secuenciaBeneficiario" type="xsd:string" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:element name="validaRadicaNovedadPersonaRequest" type="ValidaInformacionNovedadAfiliado" />
+</xsd:schema>

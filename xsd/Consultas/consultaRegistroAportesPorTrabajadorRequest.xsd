@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="ConsultaRegistroAportesPorTrabajadorRequest">
+		<xsd:sequence>
+		    <xsd:element name="tipoUsuario" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="tipoTransaccion" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="loginUsuario" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="opcionConsulta" nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="SubsidioFamiliarMonetario" />
+						<xsd:enumeration value="Aportes" />
+						<xsd:enumeration value="EstadoTarjetaServicios" />
+						<xsd:enumeration value="AfiliacionGrupoFamiliar" />
+						<xsd:enumeration value="EstadoReclamoSFD" />
+						<xsd:enumeration value="SaldoSubsidioFamiliar" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="tipoIdentificacionAfiliado" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="numeroIdentificacionAfiliado" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="fechaInicialParaConsulta" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="fechaFinalParaConsulta" type="xsd:string" nillable="true" minOccurs="0"/>
+			<xsd:element name="direccionIp" type="xsd:string" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:element name="consultaRegistroAportesPorTrabajadorRequest"
+		type="ConsultaRegistroAportesPorTrabajadorRequest" />
+</xsd:schema>

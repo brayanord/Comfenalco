@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:complexType name="ConsultaRegistroAportesPorEmpresaRequest">
+		<xsd:sequence>
+			<xsd:element name="tipoUsuario" type="xsd:string"  nillable="true" minOccurs="0"/>
+			<xsd:element name="tipoTransaccion" type="xsd:string"  nillable="true" minOccurs="0"/>
+			<xsd:element name="loginUsuarioRegistrado" type="xsd:string"  nillable="true" minOccurs="0"/>
+			<xsd:element name="opcionConsulta"  nillable="true" minOccurs="0">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="SubsidioFamiliarMonetario" />
+						<xsd:enumeration value="EstadoTarjetaServicios"  />
+						<xsd:enumeration value="AfiliacionGrupoFamiliar"  />
+						<xsd:enumeration value="TrabajadoresPorEmpresa"  />
+						<xsd:enumeration value="TrabajadoresConAportesPorEmpresa" />
+						<xsd:enumeration value="TrabajadoresMorososPorEmpresa"  />
+						<xsd:enumeration value="EstadoReclamoSubsidioFamiliar" />
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+			<xsd:element name="fechaInicial" type="xsd:string"  nillable="true" minOccurs="0"/>
+			<xsd:element name="fechaFinal" type="xsd:string"  nillable="true" minOccurs="0"/>
+			<xsd:element name="tipoDocumentoTrabajador" type="xsd:string"  nillable="true" minOccurs="0"/>
+			<xsd:element name="numeroDocumentoTrabajador" type="xsd:string"  nillable="true" minOccurs="0"/>
+			<xsd:element name="tipoDocumentoEmpresa" type="xsd:string"  nillable="true" minOccurs="0"/>
+			<xsd:element name="numeroDocumentoEmpresa" type="xsd:string"  nillable="true" minOccurs="0"/>
+			<xsd:element name="codigoEmpresaSucursal" type="xsd:string"  nillable="true" minOccurs="0"/>
+			<xsd:element name="direccionIp" type="xsd:string" nillable="true" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+
+	<xsd:element name="consultaRegistroAportesPorEmpresaRequest"
+		type="ConsultaRegistroAportesPorEmpresaRequest" />
+
+</xsd:schema>

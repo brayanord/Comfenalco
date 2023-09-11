@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="WSChannelAdapterService" targetNamespace="http://ws.esb.comfenalcovalle.com.co/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://ws.esb.comfenalcovalle.com.co/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<types>
+		<schema elementFormDefault="qualified" targetNamespace="http://ws.esb.comfenalcovalle.com.co/" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:ibmSchExtn="http://www.ibm.com/schema/extensions" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://ws.esb.comfenalcovalle.com.co/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+
+			<complexType name="RequestMessageOut">
+				<sequence>
+					<element name="header" nillable="true" type="tns:RequestHeaderOut"/>
+					<element name="body" nillable="true" type="tns:RequestBody"/>
+				</sequence>
+			</complexType>
+
+			<element ibmSchExtn:docRoot="true" name="requestMessageOut" type="tns:RequestMessageOut"/>
+
+			<complexType name="RequestHeaderOut">
+				<complexContent>
+					<extension base="tns:Header">
+						<sequence>
+							<element name="destination" nillable="true" type="tns:Destination"/>
+							<element name="securityCredential" nillable="true" type="tns:SecurityCredential"/>
+							<element name="classification" nillable="true" type="tns:Classification"/>
+						</sequence>
+					</extension>
+				</complexContent>
+			</complexType>
+
+			<complexType name="LogginData">
+				<sequence>
+					<element name="sourceSystemId" nillable="true" type="string"/>
+					<element name="destinationSystemId" nillable="true" type="string"/>
+				</sequence>
+			</complexType>
+
+			<complexType name="Destination">
+				<sequence>
+					<element name="namespace" nillable="true" type="anyURI"/>
+					<element name="name" nillable="true" type="string"/>
+					<element name="operation" nillable="true" type="string"/>
+				</sequence>
+			</complexType>
+
+			<complexType name="SecurityCredential">
+				<sequence>
+					<element name="userName" nillable="true" type="string"/>
+					<element name="userToken" nillable="true" type="anyType"/>
+				</sequence>
+			</complexType>
+
+			<complexType name="Classification">
+				<sequence>
+					<element maxOccurs="unbounded" minOccurs="0" name="classification" nillable="true" type="anyURI"/>
+				</sequence>
+			</complexType>
+
+			<complexType name="Header">
+				<sequence>
+					<element name="invokerDateTime" nillable="true" type="dateTime"/>
+					<element name="moduleId" nillable="true" type="string"/>
+					<element name="systemId" nillable="true" type="string"/>
+					<element name="messageId" nillable="true" type="string"/>
+					<element name="logginData" nillable="true" type="tns:LogginData"/>
+				</sequence>
+			</complexType>
+
+			<complexType name="ResponseHeaderOut">
+				<complexContent>
+					<extension base="tns:Header">
+						<sequence>
+							<element name="destination" nillable="true" type="tns:Destination"/>
+							<element name="responseStatus" nillable="true" type="tns:ResponseStatus"/>
+						</sequence>
+					</extension>
+				</complexContent>
+			</complexType>
+
+			<complexType name="ResponseStatus">
+				<sequence>
+					<element name="statusCode" nillable="true" type="string"/>
+				</sequence>
+			</complexType>
+
+			<complexType name="RequestBody">
+				<sequence>
+					<element name="request" nillable="true" type="tns:Request"/>
+				</sequence>
+			</complexType>
+
+
+			<complexType name="Request">
+				<sequence>
+					<xsd:element name="consultarSucursalEmpresaRequest" type="tns:ConsultarSucursalEmpresaRequest"/>
+				</sequence>
+			</complexType>
+
+			<xsd:complexType name="ConsultarSucursalEmpresaRequest">
+				<xsd:sequence>
+					<xsd:element name="tipoDocumentoSucursalEmpresa" type="xsd:string" />
+					<xsd:element name="numeroDocumentoSucursalEmpresa" type="xsd:string" />
+					<xsd:element name="codigoSucursalEmpresa" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+			<xsd:complexType name="TipoInformacionConsultaSucursal">
+				<xsd:sequence>
+					<xsd:element name="idTipo" type="xsd:string" />
+					<xsd:element name="descripcionTipo" />
+					<xsd:element name="codigoTipo" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<element name="process" type="tns:process"/>
+			<complexType name="process">
+				<sequence>
+					<element name="RequestMessageOut" nillable="true" type="tns:RequestMessageOut"/>
+				</sequence>
+			</complexType>
+
+			<element name="processResponse" type="tns:processResponse"/>
+			<complexType name="processResponse">
+				<sequence>
+					<element name="return" nillable="true" type="tns:ResponseMessageOut"/>
+				</sequence>
+			</complexType>
+
+			<complexType name="ResponseMessageOut">
+				<sequence>
+					<element name="header" nillable="true" type="tns:ResponseHeaderOut"/>
+					<element name="body" nillable="true" type="tns:ResponseBody"/>
+				</sequence>
+			</complexType>
+
+			<element ibmSchExtn:docRoot="true" name="responseMessageOut" type="tns:ResponseMessageOut"/>
+			<complexType name="ResponseBody">
+				<sequence>
+					<element name="response" nillable="true" type="tns:Response"/>
+					<element maxOccurs="unbounded" minOccurs="0" name="exceptionList" nillable="true" type="tns:ExceptionList"/>
+				</sequence>
+			</complexType>
+
+			<complexType name="Response">
+				<sequence>
+					<xsd:element name="sucursalEmpresa" type="tns:ConsultaSucursalEmpresaResponse" />
+				</sequence>
+			</complexType>   
+
+			<xsd:complexType name="ConsultaSucursalEmpresa">
+				<xsd:sequence>
+					<xsd:element name="tipoDocumentoSucursalEmpresa" type="xsd:string" />
+					<xsd:element name="numeroDocumentoSucursalEmpresa" type="xsd:string" />
+					<xsd:element name="nombreSucursalEmpresa" type="xsd:string" />
+					<xsd:element name="direccionSucursalEmpresa" type="xsd:string" />
+					<xsd:element name="municipioSucursalEmpresa" type="tns:MunicipioSucursalEmpresa" />
+					<xsd:element name="barrioSucursalEmpresa" type="tns:BarrioSucursalEmpresa" />
+					<xsd:element name="telefonoSucursalEmpresa" type="xsd:string" />
+					<xsd:element name="celularSucursalEmpresa" type="xsd:string" />
+					<xsd:element name="numeroFaxSucursalEmpresa" type="xsd:string" />
+					<xsd:element name="correoElectronicoSucursalEmpresa"
+				type="xsd:string" />
+					<xsd:element name="numeroTrabajadoresSucursalEmpresa"
+				type="xsd:string" />
+					<xsd:element name="estadoSucursalEmpresa" type="xsd:string" />
+					<xsd:element name="cargosSucursalEmpresa" type="tns:CargosSucursalEmpresa" />
+
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="MunicipioSucursalEmpresa">
+				<xsd:sequence>
+					<xsd:element name="idMunicipio" type="xsd:string" />
+					<xsd:element name="descripcionMunicipio" type="xsd:string" />
+					<xsd:element name="codigoLeyMunicipio" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="BarrioSucursalEmpresa">
+				<xsd:sequence>
+					<xsd:element name="idBarrio" type="xsd:string" />
+					<xsd:element name="descripcionBarrio" type="xsd:string" />
+					<xsd:element name="codigoLeyBarrio" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="CargoSucursalEmpresa">
+				<xsd:sequence>
+					<xsd:element name="codigoCargo" type="xsd:string" />
+					<xsd:element name="descripcionCargo" type="xsd:string" />
+					<xsd:element name="tipoDocumentoPersona" type="xsd:string" />
+					<xsd:element name="numeroDocumentoPersona" type="xsd:string" />
+					<xsd:element name="primerApellidoPersona" type="xsd:string" />
+					<xsd:element name="segundoApellidoPersona" type="xsd:string" />
+					<xsd:element name="primerNombrePersona" type="xsd:string" />
+					<xsd:element name="segundoNombrePersona" type="xsd:string" />
+					<xsd:element name="sexoPersona" type="xsd:string" />
+					<xsd:element name="fechaNacimientoPersona" type="xsd:date" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="CargosSucursalEmpresa">
+				<xsd:sequence>
+					<xsd:element name="cargos" type="tns:CargoSucursalEmpresa"
+				minOccurs="0" maxOccurs="unbounded" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="MensajeExepcionConsultarSucursalEmpresa">
+				<xsd:sequence>
+					<xsd:element name="tipoError" type="xsd:string" />
+					<xsd:element name="codigoError" type="xsd:string" />
+					<xsd:element name="descripcionError" type="xsd:string" />
+					<xsd:element name="solucionError" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="TipoInformacionConsultaSucursalResponse">
+				<xsd:sequence>
+					<xsd:element name="idTipo" type="xsd:string" />
+					<xsd:element name="descripcionTipo" />
+					<xsd:element name="codigoTipo" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="ConsultaSucursalEmpresaResponse">
+				<xsd:sequence>
+					<xsd:element name="empresa" type="tns:ConsultaSucursalEmpresa" />
+					<xsd:element name="mensajeExcepcion"
+				type="tns:MensajeExepcionConsultarSucursalEmpresa" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<complexType name="ExceptionList">
+				<sequence>
+					<element name="exception" nillable="true" type="tns:BaseException"/>
+				</sequence>
+			</complexType>
+
+			<complexType name="BaseException">
+				<sequence>
+					<element name="code" nillable="true" type="string"/>
+					<element name="description" nillable="true" type="string"/>
+					<element name="source" nillable="true" type="string"/>
+				</sequence>
+			</complexType>
+		</schema>
+	</types>
+
+	<message name="WSChannelAdapter_process">
+		<part element="tns:requestMessageOut" name="parameters"/>
+	</message>
+	<message name="WSChannelAdapter_processResponse">
+		<part element="tns:responseMessageOut" name="parameters"/>
+	</message>
+	<portType name="WSChannelAdapter">
+		<operation name="process">
+			<input message="tns:WSChannelAdapter_process"/>
+			<output message="tns:WSChannelAdapter_processResponse"/>
+		</operation>
+	</portType>
+	<binding name="WSChannelAdapterSoapHttp" type="tns:WSChannelAdapter">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="process">
+			<soap:operation soapAction="process"/>
+			<input>
+				<soap:body use="literal"/>
+			</input>
+			<output>
+				<soap:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="WSChannelAdapterService">
+		<port binding="tns:WSChannelAdapterSoapHttp" name="SBWSChannelAdapterBean">
+			<soap:address location="https://virtual.comfenalcovalle.com.co/esbtest/WSChannelAdapter"/>
+		</port>
+	</service>
+</definitions>
